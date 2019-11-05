@@ -1,0 +1,128 @@
+<!-- <view class="shopCaprTit">新用户下单减10元</view> -->
+<scroll-view scroll-y="{{isScroll}}" style='background:#fff;'>
+<block wx:key="index" wx:for="{{data}}">
+    <view data-index='{{index}}' class="order-item" bindtouchstart="drawStart" bindtouchmove="drawMove" bindtouchend="drawEnd" style="right:{{item.right}}rpx">
+        <view class="content">
+            <!-- <checkbox class="xzzt" value=""  color=""></checkbox> -->
+            <image class="xzzt" bindtap="bindCheckbox" data-index="{{index}}" src="{{item.isSelect?'../../icons/xz.png':'../../icons/wxz.png'}}"></image>
+            <view class="box-warp">
+                <image class="" src="{{url+item.pro.pro_thumb}}"></image>
+                <view class="box-gn">
+                    <view class="cp-tit">{{item.pro.pro_title}}</view>
+                    <view class="cp-xz" bindtap="details" data-index="{{index}}">
+                        <text class="zl">{{item.p_type==1?'矿机托管':'送货到家'}}</text>
+                        <image style="width:28rpx;height:28rpx;vertical-align: -5rpx;" class="" src="../../icons/down.png" ></image>
+                    </view>
+                    <view class="cp-jq">￥{{item.p_price}}</view>
+                </view>
+            </view>
+            <view class="sl">
+                <image class="jian" bindtap="jian" data-index="{{index}}"  src="../../icons/jian-ac.png" style="width:28rpx;height:28rpx;margin-top:8rpx"></image>
+                <input class="jj-sl" bindinput="jjSl" name="sl" disabled value="{{item.p_count}}" data-index="{{index}}" type="number" ></input>
+                <image class="jia" bindtap="jia" src="../../icons/jia.png" data-index="{{index}}" style="width:28rpx;height:28rpx;margin-top:8rpx"></image>
+            </view>
+        </view>
+        <view class="remove" bindtap="delItem" data-index="{{index}}">删除 </view>
+    </view>
+</block>
+</scroll-view>
+<view class="zw" style="width:100%;height:100rpx"></view>
+
+<!-- 结算 -->
+<view class="footer">
+    <view class="foot-left">
+        <image class="checkAll-img" bindtap="bindSelectAll" src="{{selectAllStatus?'../../icons/xz.png':'../../icons/wxz.png'}}" alt=""></image>
+        <text class="checkAll">全选</text>
+    </view>
+    <view class="foot-right">
+        <view class="allrpi">
+            <text class="zj">总价</text>
+            <text class="qian">￥{{totalMoney}}</text>
+        </view>
+        <view class="qjs" bindtap="qjs">去结算</view>
+    </view>
+</view>
+
+<!-- 隐藏区域 -->
+<view class="zzc {{show?'xs':'yc'}}" bindtap="yc"></view>
+<view class="details {{show?'xs':'yc'}}">
+    <view class="det-top">
+            <!-- 顶部信息 -->
+            <view class="det-tit">
+                <view class="dt-img">
+                    <image class="" src="{{url+cid.pro.pro_thumb}}"></image>
+                </view>
+                <view class="dt-xx">
+                    <view class="xxt">
+                        <text>{{cid.pro.pro_title}}</text>
+                        <image class="" src="../../icons/close.png" bindtap="yc"></image>
+                    </view>
+                    <view class="cz-jq">￥{{cid.pro.price}}</view>
+                </view>
+            </view>
+            <!-- 购买方式 -->
+            <view class="shopmode">
+                <view class="smode-tit">购买方式</view>
+                <view class="smode-box">
+                    <view class="{{cid.p_type == 1 ? 'smode-blue' : ''}}" data-blue="1" bindtap="bluebar">矿场托管</view>
+                    <view class="{{cid.p_type == 2 ? 'smode-blue' : ''}}" data-blue="2" bindtap="bluebar">送货到家</view>
+                </view>
+            </view>
+            <!-- 底部信息 -->
+            <view class="bot-xx">
+                <!-- 数量 -->
+                <view>
+                    <view class="sytf">数量</view>
+                    <view class="ycsl">
+                        <image class="jian" bindtap="plus" src="../../icons/jian-ac.png" style="width:28rpx;height:28rpx;margin-top:6rpx"></image>
+                        <input class="jj-sl" disabled value="{{cid.p_count}}"  type="number" style="margin-left:14rpx;margin-right:14rpx"></input>
+                        <image class="jia" bindtap="reduce" src="../../icons/jia.png" style="width:28rpx;height:28rpx;margin-top:6rpx"></image>
+                    </view>
+                </view>
+                <block wx:if="{{cid.p_type == 1}}">
+                <!-- 电费价格 -->
+                    <view>
+                        <view class="sytf">电费</view>
+                        <view class="sytf-left">￥{{cid.pro.pro_expense}}/台</view>
+                    </view>
+                    <!-- 服务费 -->
+                    <view>
+                        <view class="sytf">服务费</view>
+                        <view class="sytf-left">￥{{cid.pro.ele_fee}}/台</view>
+                    </view>
+                    <!-- 上机时间 -->
+                    <view>
+                        <view class="sytf">上机时间</view>
+                        <view class="sytf-left">付款成功后{{cid.pro.post_days}}天内</view>
+                    </view>
+                </block>
+                <block wx:if="{{cid.p_type == 2}}">
+                <!-- 邮费价格 -->
+                    <view>
+                        <view class="sytf">邮费价格</view>
+                        <view class="sytf-left">￥{{cid.pro.postage}}/台</view>
+                    </view>
+                    <!-- 调试服务费 -->
+                    <view>
+                        <view class="sytf">调试服务费</view>
+                        <view class="sytf-left">￥{{cid.pro.service_fee}}/台</view>
+                    </view>
+                    <!-- 发货时间 -->
+                    <view>
+                        <view class="sytf">发货时间</view>
+                        <view class="sytf-left">付款成功后{{cid.pro.post_days}}天内</view>
+                    </view>
+                </block>
+            </view>
+    </view>
+    <view class="det-bot" bindtap="confirm">确认</view>
+</view>
+<!-- 提示 -->
+<view class="msg" hidden="{{scts!='0'}}">{{msg}}</view>
+<!-- 空页面显示 -->
+<block wx:if="{{data == ''}}">
+    <view class="noll" style="margin-top:220rpx">
+        <image class="" src="../../icons/no-car.png"></image>
+        <view class="">购物车空空如也</view>
+    </view>
+</block>

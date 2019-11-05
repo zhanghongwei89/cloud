@@ -1,0 +1,41 @@
+<block wx:for="{{address}}" wx:key="index">
+   <view class="add">
+       <view class="add-top">
+           <view class="add-mess">
+               <view class="name">{{item.name}}</view>
+               <view class="phone">{{item.mobile}}</view>
+               <view class="mr" wx:if="{{item.is_default ==1}}">默认</view>
+           </view>
+           <view class="add-addmess">{{item.province}}{{item.city}}{{item.state}}{{item.address}}</view>
+       </view>
+       <view class="add-bot">
+           <view class="add-left">
+               <!-- <image class="" src="../../icons/wxz.png"></image>
+               <text class="">默认地址</text> -->
+           </view>
+           <view class="add-right">
+               <view class="add-bj" bindtap="edit" data-index="{{index}}">
+                    <image class="" src="../../icons/bj.png"></image>
+                    <text class="">编辑</text>
+               </view>
+               <view class="add-del" bindtap="delete" data-index="{{index}}">
+                    <image class="" src="../../icons/del.png"></image>
+                    <text class="">删除</text>
+               </view>
+           </view>
+       </view>
+   </view> 
+</block>
+<!-- 空页面显示 -->
+<block wx:if="{{address == ''}}">
+    <view class="noll" style="margin-top:360rpx">
+        <image class="" src="../../icons/no-add.png"></image>
+        <view class="">暂无地址</view>
+    </view>
+</block>
+<!-- 占位 -->
+<view class="zw"></view>
+<!-- 添加地址 -->
+<view class="add-ress" bindtap="add">添加新收货人</view>
+<!-- 提示 -->
+<view class="ts" wx:if="{{scts == 0}}">删除成功</view>

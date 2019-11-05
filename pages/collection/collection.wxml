@@ -1,0 +1,24 @@
+<view class="border"></view>
+<view class="coll-box">
+    <block wx:for="{{coll}}" wx:key="index">
+        <view class="coll-warp" bindtap="tz" data-index="{{index}}">
+            <view class="coll-wl">
+                <image class="" src="{{url+item.pro.pro_thumb}}"></image>
+            </view>
+            <view class="coll-wr">
+                <view class="coll-tit">{{item.pro.pro_title}}</view>
+                <view class="jq">
+                    <view class="coll-jq"><text>¥</text>{{item.pro.price}}</view>
+                    <view class="coll-sj">{{item.add_time_dis}}</view>
+                </view>
+            </view>
+        </view>
+    </block>
+</view>
+<!-- 空页面显示 -->
+<block wx:if="{{coll == ''}}">
+    <view class="noll" style="margin-top:360rpx">
+        <image class="" src="../../icons/no-coll.png"></image>
+        <view class="">您还没有收藏商品</view>
+    </view>
+</block>

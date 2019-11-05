@@ -1,0 +1,5 @@
+<view class="cent">
+    <view class="h1">{{data.title}}</view>
+    <view class="h2">{{data.addtime}}</view>
+    <rich-text class="h3" nodes="{{a}}"></rich-text>
+</view>

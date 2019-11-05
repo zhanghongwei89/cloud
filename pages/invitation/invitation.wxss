@@ -1,0 +1,200 @@
+.page{
+    background:linear-gradient(158deg,rgba(217,63,65,1) 0%,rgba(245,108,70,1) 27%,rgba(245,140,74,1) 100%);
+    padding: 98rpx 30rpx 40rpx 30rpx;
+}
+.h1{
+    font-size: 70rpx;
+    font-weight: 700;
+    color: #F7DFA8;
+    margin-bottom: 32rpx;
+    letter-spacing:33rpx;
+}
+.h1>text:nth-child(1){
+    margin-left: 68rpx;
+    margin-right: 40rpx;
+}
+.h2{
+    font-size: 32rpx;
+    color: #FFD9C6;
+    text-align: center;
+    letter-spacing:16rpx;
+    padding-left: 30rpx;
+}
+.back-box{
+    width: 750rpx;
+    margin-left: -30rpx;
+    background: url(http://api.mypalmtech.cn/img/box.png) no-repeat;
+    background-size: 100%;
+    height: 538rpx;
+}
+.record{
+    width: 100%;
+    background: #fff;
+    border-radius: 8rpx
+}
+.record-tit{
+    color: #333333;
+    font-size: 32rpx;
+    background: #F6F6F6;
+    text-align: center;
+    padding-top: 26rpx;
+    padding-bottom: 26rpx;
+    border-radius: 8rpx 8rpx 0 0;
+    font-weight: 700
+}
+.record-bot{
+    padding-top: 48rpx;
+    padding-bottom: 60rpx;
+    display: flex;
+    justify-content: space-between
+}
+.record-bot>view{
+    width: 230rpx;
+    text-align: center;
+    border-right: 2rpx solid #F0F0F0
+}
+.record-bot>view:last-child{
+    border: none
+}
+.bot-t{
+    color: #434343;
+    font-size: 28rpx;
+    margin-bottom: 12rpx;
+}
+.bot-t>text{
+    font-size: 48rpx;
+    font-weight: 700
+}
+.bot-b{
+    font-size: 28rpx;
+    color: #909499
+}
+.invitation{
+    margin-top: 24rpx;
+    margin-bottom: 24rpx;
+    width: 100%;
+    border-radius: 8rpx;
+    background: #fff
+}
+.inv-tit{
+    color: #333333;
+    font-size: 32rpx;
+    background: #F6F6F6;
+    text-align: center;
+    padding-top: 26rpx;
+    padding-bottom: 26rpx;
+    border-radius: 8rpx 8rpx 0 0;
+    font-weight: 700
+}
+.inv-bot{
+    padding: 48rpx 30rpx 42rpx;
+    background: #fff;
+    border-radius:0 0 8rpx 8rpx ;
+}
+.tiao{
+    background: url(http://api.mypalmtech.cn/img/tiao.png) no-repeat;
+    background-size: 100%;
+    width: 534rpx;
+    height: 224rpx;
+    color: #fff;
+    margin: 0 auto;
+    padding-top: 40rpx;
+}
+.tiao-tit{
+    font-size: 30rpx;
+    color: #FFFFFF;
+    margin-bottom: 20rpx;
+    text-align: center
+}
+.tiao-warp{
+    color: #fff;
+    font-size: 52rpx;
+    font-weight: 700;
+    text-align: center
+}
+.copy{
+    width:384rpx;
+    height:82rpx;
+    background:linear-gradient(180deg,rgba(255,221,179,1) 0%,rgba(255,211,158,1) 100%);
+    border-radius:53rpx;
+    margin: 0 auto;
+    text-align: center;
+    color: #704814;
+    font-size: 30rpx;
+    margin-top: 48rpx;
+    line-height: 82rpx;
+    font-weight: 700;
+    margin-bottom: 40rpx;
+}
+.wz{
+    color: #808080;
+    font-size: 24rpx;
+    line-height: 40rpx;
+}
+.details{
+    margin-top: 24rpx;
+    margin-bottom: 24rpx;
+    width: 100%;
+    border-radius: 8rpx;
+    background: #fff
+}
+.det-tit{
+    color: #333333;
+    font-size: 32rpx;
+    background: #F6F6F6;
+    text-align: center;
+    padding-top: 26rpx;
+    padding-bottom: 26rpx;
+    border-radius: 8rpx 8rpx 0 0;
+    font-weight: 700
+}
+.det-bot{
+    padding: 48rpx 30rpx 42rpx;
+    background: #fff;
+    border-radius:0 0 8rpx 8rpx;
+}
+.switch{
+    width:650rpx;
+    height:84rpx;
+    background:rgba(245,140,74,1);
+    border-radius:48rpx;
+    color: #fff;
+    font-size: 28rpx;
+    padding-left: 20rpx;
+    padding-right: 40rpx;
+    display: flex;
+    justify-content: space-between;
+    text-align: center;
+    line-height: 84rpx;
+    margin-bottom: 32rpx;
+}
+.switch>view{
+    width: 168rpx;
+}
+.switch>.on{
+    font-weight: 700;
+}
+.switch-box{
+
+}
+.switch-box-tit{
+    background: #F5F5F5;
+    padding-top: 12rpx;
+    padding-bottom: 12rpx;
+    color: #4D4D4D;
+    font-size: 24rpx;
+    text-align: center;
+    display: flex;
+    justify-content: space-between
+}
+.hd{
+    color: #333333;
+    font-size: 28rpx;
+    text-align: center;
+}
+.hd-list{
+    display: flex;
+    justify-content: space-between;
+    padding-top: 24rpx;
+    padding-bottom: 24rpx;
+}

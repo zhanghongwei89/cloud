@@ -1,0 +1,28 @@
+.logo{
+    text-align: center;
+    margin-top: 100rpx;
+    margin-bottom: 110rpx;
+}
+.logo>image{
+    width: 148rpx;
+    height: 148rpx;
+}
+.a{
+    width:626rpx;
+    height:84rpx;
+    border-radius:44rpx;
+    line-height: 84rpx;
+    text-align: center;
+    font-size: 32rpx;
+    margin: 0 auto;
+    margin-bottom: 48rpx;
+    
+}
+.wx-login{
+    background:rgba(24,120,245,1);
+    color: #fff;
+}
+.b{
+    border:2rpx solid rgba(240,240,240,1);
+    color: #606366;
+}

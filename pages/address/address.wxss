@@ -1,0 +1,118 @@
+/* pages/address/address.wxss */
+page{
+    background: #F7F7F7;
+    border-top: 2rpx solid #E1E9F0;
+}
+.add{
+    background: #fff;
+    padding: 26rpx 0rpx 22rpx 30rpx;
+    margin-bottom: 22rpx;
+}
+.add-top{
+    padding-bottom: 26rpx;
+    border-bottom: 2rpx solid #E6E6E6;
+}
+.add-mess>view{
+    display: inline-block;
+    color: #303133;
+    font-size: 30rpx;
+    margin-right: 32rpx;
+    font-weight: 700;
+}
+.add-mess>.mr{
+    font-size: 24rpx;
+    color: #1878F5;
+    font-weight: 700;
+    padding: 5rpx 16rpx;
+    border: 1rpx solid #1878F5;
+    border-radius: 8rpx
+}
+.add-addmess{
+    width: 100%;
+    /* height: 70rpx; */
+    margin-top: 8rpx;
+    padding-right: 30rpx;
+    font-size: 26rpx;
+    color: #606366;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+}
+.add-bot{
+    padding-top: 24rpx;
+    padding-right: 30rpx;
+    display: flex;
+    justify-content: space-between
+}
+.add-left>image{
+    width: 40rpx;
+    height: 40rpx;
+    margin-right: 16rpx;
+    vertical-align: -30%
+}
+.add-left>text{
+    font-size: 26rpx;
+    color: #787B80
+}
+.add-right{
+    display: flex;
+    justify-content: space-between
+}
+.add-right>view>image{
+    width: 48rpx;
+    height: 48rpx;
+    margin-right: 8rpx;
+    vertical-align: -30%
+}
+.add-right>view>text{
+    color: #606366;
+    font-size: 26rpx
+}
+.add-bj{
+    margin-right: 32rpx;
+}
+.zw{
+    width: 100%;
+    height: 100rpx;
+}
+.add-ress{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    padding-top: 28rpx;
+    padding-bottom: 26rpx;
+    background: #1878F5;
+    color: #fff;
+    font-size: 32rpx;
+    text-align: center;
+}
+.ts{
+    width: 200rpx;
+    height: 100rpx;
+    line-height: 100rpx;
+    background: rgba(0,0,0,.5);
+    text-align: center;
+    border-radius: 8rpx;
+    font-size: 30rpx;
+    color: #fff;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    margin-top: -50rpx;
+    margin-left: -100rpx;
+}
+.noll{
+    text-align: center;
+}
+.noll>image{
+    width: 240rpx;
+    height: 240rpx;
+    margin-bottom: 24rpx;
+}
+.noll>view{
+    font-size: 28rpx;
+    color: #A8ACB3;
+}

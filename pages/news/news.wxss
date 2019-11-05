@@ -1,0 +1,43 @@
+page{
+    background: #F7F7F7;
+}
+.new-box{
+    margin-top: 24rpx;
+    padding: 32rpx 42rpx 32rpx 30rpx;
+    background: #fff;
+    display: flex;
+    justify-content: space-between;
+    position: relative;
+}
+.new-boxr>image{
+    width: 40rpx;
+    height: 40rpx;
+    vertical-align: -70%
+}
+.new-boxl>view{
+    display: inline-block;
+    margin-left: 34rpx;
+}
+.new-boxl>image{
+    width: 80rpx;
+    height: 80rpx;
+}
+.h1{
+    font-size: 30rpx;
+    color: #484A4D;
+    margin-bottom: 4rpx;
+}
+.h2{
+    font-size: 26rpx;
+    color: #909499
+}
+.tips{
+    position: absolute;
+    background: #FF3B30;
+    color: #fff;
+    font-size: 20rpx;
+    padding: 2rpx 10rpx;
+    border-radius: 38rpx;
+    border:3rpx solid rgba(255,255,255,1);
+    left: 90rpx;
+}

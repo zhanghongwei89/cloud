@@ -1,0 +1,23 @@
+page{
+    background: #F7F7F7
+}
+.cent{
+    border-top: 2rpx solid #E1E9F0;
+    background: #fff;
+    padding: 48rpx 30rpx 40rpx;
+}
+.h1{
+    font-size: 36rpx;
+    color: #303133;
+    font-weight: 700;
+    margin-bottom: 16rpx;
+}
+.h2{
+    font-size: 28rpx;
+    color: #909499;
+    margin-bottom: 34rpx;
+}
+.h3{
+    font-size: 30rpx;
+    color: #484A4D;
+}

@@ -1,0 +1,12 @@
+<view class="yqm-text">输入邀请码</view>
+<view class='inputContainer'>
+    <view class="showNumber">{{plateNumber[0]}}</view>
+    <view class="showNumber">{{plateNumber[1]}}</view>
+    <view class="showNumber">{{plateNumber[2]}}</view>
+    <view class="showNumber">{{plateNumber[3]}}</view>
+    <view class="showNumber">{{plateNumber[4]}}</view>
+    <view class="showNumber" style="margin-right: 0rpx;">{{plateNumber[5]}}</view>
+    <input class='plateInput' bindinput="inputPlateNumber" maxlength="6" bindconfirm='submit'></input>
+</view>
+<view class="reg" bindtap="reg">注册</view>
+

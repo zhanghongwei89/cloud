@@ -1,0 +1,30 @@
+<view class="border"></view>
+<!-- 支付状态 -->
+<view class="status">
+    <view class="sta-top">
+        <image class="" src="../../icons/cg.png"></image>
+        <view class="h1">支付成功</view>
+        <view class="mode">
+            <view class="m-l">支付方式</view>
+            <view class="m-r">微信支付</view>
+        </view>
+        <view class="mode">
+            <view class="m-l">支付金额</view>
+            <view class="m-r">¥180.00</view>
+        </view>
+        <view class="btn-box">
+            <view bindtap="home">回到首页</view>
+            <view bindtap="myorder">查看订单</view>
+        </view>
+    </view>
+</view>
+<!-- 温馨提示 -->
+<view class="tips">
+    <view class="tips-tit">
+        <image class="" src="../../icons/tips.png"></image>
+        <text class="">温馨提示</text>
+    </view>
+    <view class="warp">掌尖商城不会以订单异常、系统升级为由要求您点击任何网址链接进行退款操作。</view>
+</view>
+<!-- 流程图 -->
+<image class="lc-img" src="../../icons/lc.png"></image>

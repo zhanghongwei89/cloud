@@ -1,0 +1,241 @@
+<view class="swiper-tab">
+    <view class="swiper-tab-list {{currentTab == 0 ? 'on' : ''}}" data-current="0" bindtap="tabNav">全部</view>
+    <view class="swiper-tab-list {{currentTab == 1 ? 'on' : ''}}" data-current="1" bindtap="tabNav">待付款</view>
+    <view class="swiper-tab-list {{currentTab == 2 ? 'on' : ''}}" data-current="2" bindtap="tabNav">待收货</view>
+    <view class="swiper-tab-list {{currentTab == 3 ? 'on' : ''}}" data-current="3" bindtap="tabNav">已完成</view>
+    <view class="swiper-tab-list {{currentTab == 4 ? 'on' : ''}}" data-current="4" bindtap="tabNav">已取消</view>
+</view>
+<!-- 全部  -->
+<view class="swiper-box" hidden="{{currentTab!='0'}}">
+    <block wx:for="{{data}}" wx:key="index">
+        <view class="order-box" catchtap="dfkdet" data-index="{{index}}">
+            <view class="order-top">
+                <view class="ot-l">订单编号：{{item.ordersn}}</view>
+                <view class="ot-r" wx:if="{{item.status_dis == '待付款'}}">待付款</view>
+                <view class="ot-r" wx:if="{{item.status_dis == '待发货'}}">待收货</view>
+                <view class="ot-r" wx:if="{{item.status_dis == '已完成'}}">已完成</view>
+                <view class="ot-r" wx:if="{{item.status_dis == '已取消'}}">已取消</view>
+            </view>
+            <block wx:for="{{item.product}}" wx:key="index">
+                <view class="order-warp">
+                    <view class="nr">
+                        <view class="nr-l">
+                            <image class="" src="{{url+item.pro_thumb}}"></image>
+                        </view>
+                        <view class="nr-r">
+                            <view class="nr-tit">{{item.pro_title}}</view>
+                            <view class="lx">{{item.o_type == 1 ?'矿机托管' : '邮寄到家'}}</view>
+                            <view class="jq">
+                                <view class="jq-l"><text>¥</text>{{item.price}}</view>
+                                <view class="jq-r">X{{item.o_num}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <view class="order-bot">
+                <view class="ob-l">应付金额：<text>￥{{item.pay_fee}}</text></view>
+                <!-- 待付款 -->
+                <view class="ob-r" wx:if="{{item.status_dis == '待付款'}}">
+                    <view class="or-ccc" catchtap="cancel" data-can="{{index}}">取消订单</view>
+                    <view class="or-blue" data-fk="{{index}}" catchtap="nowfk">立即付款</view>
+                </view>
+                <!-- 代发货 -->
+                <view class="ob-r" wx:if="{{item.status_dis == '待收货'}}">
+                    <view class="or-ccc">查看物流</view>
+                    <view class="or-blue" catchtap="confirm" data-con="{{index}}">确认收货</view>
+                </view>
+                <!-- 已完成 -->
+                <view class="ob-r" wx:if="{{item.status_dis == '已完成'}}">
+                    <!-- <view class="or-ccc" style="display:none" catchtap="cancel" data-can="{{index}}">取消订单</view> -->
+                    <view class="or-blue" catchtap="again" data-ag="{{index}}">再次购买</view>
+                </view>
+                <!-- 已取消 -->
+                <view class="ob-r" wx:if="{{item.status_dis == '已取消'}}">
+                    <!-- <view class="or-ccc">删除订单</view> -->
+                    <view class="or-blue" catchtap="again" data-ag="{{index}}">重新购买</view>
+                </view>
+            </view>
+        </view>
+    </block>
+    <!-- 空页面显示 -->
+    <block wx:if="{{data == ''}}">
+        <view class="noll" style="margin-top:340rpx">
+            <image class="" src="../../icons/no-order.png"></image>
+            <view class="">暂无订单</view>
+        </view>
+    </block>
+</view>
+<!-- 代付款  -->
+<view class="swiper-box" hidden="{{currentTab!='1'}}">
+    <block wx:for="{{dfk}}" wx:key="index">
+        <view class="order-box" catchtap="dfkdet" data-index="{{index}}">
+            <view class="order-top">
+                <view class="ot-l">订单编号：{{item.ordersn}}</view>
+                <view class="ot-r" wx:if="{{item.status_dis == '待付款'}}">待付款</view>
+            </view>
+            <block wx:for="{{item.product}}" wx:key="index">
+                <view class="order-warp">
+                    <view class="nr">
+                        <view class="nr-l">
+                            <image class="" src="{{url+item.pro_thumb}}"></image>
+                        </view>
+                        <view class="nr-r">
+                            <view class="nr-tit">{{item.pro_title}}</view>
+                            <view class="lx">{{item.o_type == 1 ?'矿机托管' : '邮寄到家'}}</view>
+                            <view class="jq">
+                                <view class="jq-l"><text>¥</text>{{item.price}}</view>
+                                <view class="jq-r">X{{item.o_num}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <view class="order-bot">
+                <view class="ob-l">应付金额：<text>￥{{item.pay_fee}}</text></view>
+                <!-- 待发货 -->
+                <view class="ob-r" wx:if="{{item.status_dis == '待付款'}}">
+                    <view class="or-ccc" catchtap="cancel" data-can="{{index}}">取消订单</view>
+                    <view class="or-blue" data-fk="{{index}}" catchtap="nowfk">立即付款</view>
+                </view>
+            </view>
+        </view>
+    </block>
+    <!-- 空页面显示 -->
+    <block wx:if="{{dfk == ''}}">
+        <view class="noll" style="margin-top:340rpx">
+            <image class="" src="../../icons/no-order.png"></image>
+            <view class="">暂无订单</view>
+        </view>
+    </block>
+</view>
+<!-- 待收货  -->
+<view class="swiper-box" hidden="{{currentTab!='2'}}">
+    <block wx:for="{{dsh}}" wx:key="index">
+        <view class="order-box"catchtap="dfkdet" data-index="{{index}}">
+            <view class="order-top">
+                <view class="ot-l">订单编号：{{item.ordersn}}</view>
+                <view class="ot-r" wx:if="{{item.status_dis == '待发货'}}">待收货</view>
+            </view>
+            <block wx:for="{{item.product}}" wx:key="index">
+                <view class="order-warp">
+                    <view class="nr">
+                        <view class="nr-l">
+                            <image class="" src="{{url+item.pro_thumb}}"></image>
+                        </view>
+                        <view class="nr-r">
+                            <view class="nr-tit">{{item.pro_title}}</view>
+                            <view class="lx">{{item.o_type == 1 ?'矿机托管' : '邮寄到家'}}</view>
+                            <view class="jq">
+                                <view class="jq-l"><text>¥</text>{{item.price}}</view>
+                                <view class="jq-r">X{{item.o_num}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <view class="order-bot">
+                <view class="ob-l">应付金额：<text>￥{{item.pay_fee}}</text></view>
+                <!-- 代发货 -->
+                <view class="ob-r" wx:if="{{item.status_dis == '待收货'}}">
+                    <view class="or-ccc">查看物流</view>
+                    <view class="or-blue" catchtap="confirm" data-con="{{index}}">确认收货</view>
+                </view>
+            </view>
+        </view>
+    </block>
+    <!-- 空页面显示 -->
+    <block wx:if="{{dsh == ''}}">
+        <view class="noll" style="margin-top:340rpx">
+            <image class="" src="../../icons/no-order.png"></image>
+            <view class="">暂无订单</view>
+        </view>
+    </block>
+    <!-- <view class=""></view> -->
+</view>
+<!-- 已完成  -->
+<view class="swiper-box" hidden="{{currentTab!='3'}}">
+    <block wx:for="{{ywc}}" wx:key="index">
+        <view class="order-box" catchtap="dfkdet" data-index="{{index}}">
+            <view class="order-top">
+                <view class="ot-l">订单编号：{{item.ordersn}}</view>
+                <view class="ot-r" wx:if="{{item.status_dis == '已完成'}}">已完成</view>
+            </view>
+            <block wx:for="{{item.product}}" wx:key="index">
+                <view class="order-warp">
+                    <view class="nr">
+                        <view class="nr-l">
+                            <image class="" src="{{url+item.pro_thumb}}"></image>
+                        </view>
+                        <view class="nr-r">
+                            <view class="nr-tit">{{item.pro_title}}</view>
+                            <view class="lx">{{item.o_type == 1 ?'矿机托管' : '邮寄到家'}}</view>
+                            <view class="jq">
+                                <view class="jq-l"><text>¥</text>{{item.price}}</view>
+                                <view class="jq-r">X{{item.o_num}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <view class="order-bot">
+                <view class="ob-l">应付金额：<text>￥{{item.pay_fee}}</text></view>
+                <!-- 已完成 -->
+                <view class="ob-r" wx:if="{{item.status_dis == '已完成'}}">
+                    <!-- <view class="or-ccc" style="display:none" catchtap="cancel" data-can="{{index}}">取消订单</view> -->
+                    <view class="or-blue" catchtap="again" data-ag="{{index}}">再次购买</view>
+                </view>
+            </view>
+        </view>
+    </block>
+    <!-- 空页面显示 -->
+    <block wx:if="{{ywc == ''}}">
+        <view class="noll" style="margin-top:340rpx">
+            <image class="" src="../../icons/no-order.png"></image>
+            <view class="">暂无订单</view>
+        </view>
+    </block>
+</view>
+<!-- 已取消  -->
+<view class="swiper-box" hidden="{{currentTab!='4'}}">
+    <block wx:for="{{yqx}}" wx:key="index">
+        <view class="order-box" catchtap="dfkdet" data-index="{{index}}">
+            <view class="order-top">
+                <view class="ot-l">订单编号：{{item.ordersn}}</view>
+                <view class="ot-r" wx:if="{{item.status_dis == '已取消'}}">已取消</view>
+            </view>
+            <block wx:for="{{item.product}}" wx:key="index">
+                <view class="order-warp">
+                    <view class="nr">
+                        <view class="nr-l">
+                            <image class="" src="{{url+item.pro_thumb}}"></image>
+                        </view>
+                        <view class="nr-r">
+                            <view class="nr-tit">{{item.pro_title}}</view>
+                            <view class="lx">{{item.o_type == 1 ?'矿机托管' : '邮寄到家'}}</view>
+                            <view class="jq">
+                                <view class="jq-l"><text>¥</text>{{item.price}}</view>
+                                <view class="jq-r">X{{item.o_num}}</view>
+                            </view>
+                        </view>
+                    </view>
+                </view>
+            </block>
+            <view class="order-bot">
+                <view class="ob-l">应付金额：<text>￥{{item.pay_fee}}</text></view>
+                <!-- 已取消 -->
+                <view class="ob-r" wx:if="{{item.status_dis == '已取消'}}">
+                    <!-- <view class="or-ccc">删除订单</view> -->
+                    <view class="or-blue" catchtap="again" data-ag="{{index}}">重新购买</view>
+                </view>
+            </view>
+        </view>
+    </block>
+    <!-- 空页面显示 -->
+    <block wx:if="{{yqx == ''}}">
+        <view class="noll" style="margin-top:340rpx">
+            <image class="" src="../../icons/no-order.png"></image>
+            <view class="">暂无订单</view>
+        </view>
+    </block>
+</view>

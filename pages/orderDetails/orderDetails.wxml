@@ -1,0 +1,220 @@
+<view class="blue">
+    <!-- 代付款 -->
+    <block wx:if="{{data.status_dis == '待付款'}}">
+        <view class="det">
+            <view class="det-l">
+                <image class="" src="../../icons/sj.png"></image>
+                <text>等待付款</text>
+            </view>
+            <view class="det-r">
+                <text style="margin-right:14rpx">剩余</text>
+                <text>
+                    <text class="fm">{{jgdjs_jo.min}}</text>分<text class="fm">{{jgdjs_jo.sec}}</text>秒
+                </text>
+            </view>
+        </view>
+    </block>
+    <!-- 代发货 -->
+    <block wx:if="{{data.status_dis == '待发货'}}">
+        <view class="det">
+            <view class="det-l">
+                <image class="" src="../../icons/kd.png"></image>
+                <text>等待发货</text>
+            </view>
+            <view class="det-r">
+                <text style="margin-right:14rpx">普通快递</text>
+            </view>
+        </view>
+    </block>
+    <!-- 已完成 -->
+    <block wx:if="{{data.status_dis == '已完成'}}">
+        <view class="det">
+            <view class="det-l">
+                <image class="" src="../../icons/dj.png"></image>
+                <text>交易完成</text>
+            </view>
+            <view class="det-r">
+                
+            </view>
+        </view>
+    </block>
+    <!-- 已取消 -->
+    <block wx:if="{{data.status_dis == '已取消'}}">
+        <view class="det">
+            <view class="det-l">
+                <image class="" src="../../icons/th.png"></image>
+                <text>交易关闭</text>
+            </view>
+            <view class="det-r">
+                
+            </view>
+        </view>
+    </block>
+</view>
+<!-- 待收货信息  -->
+<block wx:if="{{data.status_dis == '待发货'}}">
+    <view class="kc-mess">
+        <view class="kc-l">
+            <image class="" src="../../icons/kc.png"></image>
+            <view class="kc-lr">
+                <view>您的订单已进入库房，等待出库</view>
+                <view>2019-05-01 16:01</view>
+            </view>
+        </view>
+        <view class="kc-r">
+            <image class="" src="../../icons/r.png"></image>
+        </view>
+    </view>
+</block>
+<!-- 已完成信息  -->
+<block wx:if="{{data.status_dis == '已完成'}}">
+    <view class="kc-mess">
+        <view class="kc-l">
+            <image class="" src="../../icons/kc.png"></image>
+            <view class="kc-lr">
+                <view style="margin-top:16rpx">感谢您在掌尖商城购物，欢迎再次光临</view>
+            </view>
+        </view>
+        <view class="kc-r">
+            <image class="" src="../../icons/r.png"></image>
+        </view>
+    </view>
+</block>
+<!-- 地址  -->
+<block wx:if="{{address != 0}}">
+    <view class="address">
+        <image class="add-l" src="../../icons/dz.png"></image>
+        <view class="add-r">
+            <view>{{data.address.name}} {{data.address.mobile}}</view>
+            <view>{{data.address.province}}{{data.address.city}}{{data.address.state}}{{data.address.address}}</view>
+        </view>
+    </view>
+</block>
+<!-- 商品详情  -->
+<view class="cominfor">
+    <view class="com-tit">商品信息</view>
+    <view class="com-box">
+        <block wx:for="{{data.product}}" wx:key="index">
+            <view class="com-warp">
+                <image class="com-warpl" src="{{url+item.pro_thumb}}"></image>
+                <view class="com-warpr">
+                    <view>{{item.pro_title}}</view>
+                    <view>{{item.type}}</view>
+                    <view>
+                        <view>¥<text>{{item.price}}</text></view>
+                        <view>X{{item.o_num}}</view>
+                    </view>
+                </view>
+            </view>
+        </block>
+    </view>
+</view>
+<!-- 订单信息  -->
+<view class="order-infor">
+    <view class="or-tit">订单信息</view>
+    <view class="or-warp">
+        <view>
+            <view>商品合计：</view>
+            <view>¥{{data.total_fee}}</view>
+        </view>
+        <view wx:if="{{data.postage !== 0}}">
+            <view>运费：</view>
+            <view>¥{{data.postage}}</view>
+        </view>
+        <view wx:if="{{data.service_fee !== 0}}">
+            <view>服务费：</view>
+            <view>¥{{data.service_fee}}</view>
+        </view>
+        <view wx:if="{{data.discount !== null}}">
+            <view>优惠券：</view>
+            <view>- ¥{{data.discount}}</view>
+        </view>
+        <view  wx:if="{{data.activity_discount !== null}}">
+            <view>活动优惠：</view>
+            <view>- ¥{{data.activity_discount}}</view>
+        </view>
+        <block>
+            <view>
+                <view style="color:#606366;font-size:26rpx">实付金额：</view>
+                <view style="color:#F54427;font-size:32rpx;font-weight:700">¥{{data.pay_fee}}</view>
+            </view>
+        </block>
+        
+    </view>
+</view>
+<!-- 订单编号  -->
+<view class="order-num">
+    <view class="">
+        <view class="num">订单编号：</view>
+        <view class="number">{{data.ordersn}}</view>
+        <view class="copy" bindtap="copyText" data-text="{{data.ordersn}}">复制</view>
+    </view>
+    <view class="">
+        <view class="num">提交时间：</view>
+        <view class="number">{{data.createtime}}</view>
+    </view>
+    <block>
+        <view class="">
+            <view class="num">支付方式：</view>
+            <view class="number">在线支付/微信支付</view>
+        </view>
+    </block>
+    <view class="">
+        <view class="num">付款时间：</view>
+        <view class="number">2019-05-01 16:01</view>
+    </view>
+</view>
+<!-- 占位  -->
+<view class="zw"></view>
+<!-- 代付款  -->
+<block wx:if="{{data.status_dis == '待付款'}}">
+    <view class="xf-bot {{isIphoneX ? 'iphonex_bottom':''}}">
+        <view class="xf-botl">
+            <text>应付金额：</text>
+            <text>¥ {{data.pay_fee}}</text>
+        </view>
+        <view class="xf-botr">
+            <view catchtap="cancel" data-can="{{index}}">取消订单</view>
+            <view class="xf-blue" bindtap="qfk">立即付款</view>
+        </view>
+    </view>
+</block>
+<!-- 代收货  -->
+<block wx:if="{{data.status_dis == '待收货'}}">
+    <view class="xf-bot bot_btns {{isIphoneX ? 'iphonex_bottom':''}}">
+        <view class="xf-botl">
+            <!-- <text>应付金额：</text>
+            <text>¥ 7988888.00</text> -->
+        </view>
+        <view class="xf-botr">
+            <view>查看物流</view>
+            <view class="xf-blue" catchtap="confirm" data-con="{{index}}">确认收货</view>
+        </view>
+    </view>
+</block>
+<!-- 已完成  -->
+<block wx:if="{{data.status_dis == '已完成'}}">
+    <view class="xf-bot bot_btns {{isIphoneX ? 'iphonex_bottom':''}}">
+        <view class="xf-botl">
+            <!-- <text>应付金额：</text>
+            <text>¥ 7988888.00</text> -->
+        </view>
+        <view class="xf-botr">
+            <!-- <view>申请售后</view> -->
+            <view class="xf-blue" catchtap="again" data-ag="{{index}}">再次购买</view>
+        </view>
+    </view>
+</block>
+<!-- 已取消  -->
+<block wx:if="{{data.status_dis == '已取消'}}">
+    <view class="xf-bot bot_btns {{isIphoneX ? 'iphonex_bottom':''}}">
+        <view class="xf-botl">
+            <!-- <text>应付金额：</text>
+            <text>¥ 7988888.00</text> -->
+        </view>
+        <view class="xf-botr">
+            <view>删除订单</view>
+            <view class="xf-blue"catchtap="again" data-ag="{{index}}">重新购买</view>
+        </view>
+    </view>
+</block>

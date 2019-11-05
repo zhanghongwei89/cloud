@@ -1,0 +1,8 @@
+<view class="logo">
+    <image class="" src="../../icons/logo.png"></image>
+</view>
+<!-- <view class="wx-login a" bindtap="">微信一键登录</view> -->
+<button wx:if="{{show}}" class="wx-login a" open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">微信一键登录</button>
+<view wx:if="{{yshow}}" class="wx-login a" bindtap="test">微信一键登录</view>
+<navigator url="../judge/judge" class="phone-login a b">其他手机号注册登录</navigator>
+

@@ -1,0 +1,108 @@
+<view class="page">
+    <view class="back-box">
+        <view class="h1">
+            <text>邀好友</text>
+            <text>返佣金</text>
+        </view>
+        <view class="h2">邀 请 好 友 现 金 赚 不 停</view>
+        <!-- <image class="back-box" src="http://api.mypalmtech.cn/img/box.png"></image> -->
+    </view>
+    <!-- 我的战绩 -->
+    <view class="record">
+        <view class="record-tit">我的战绩</view>
+        <view class="record-bot">
+            <view>
+                <view class="bot-t"><text>{{data.member_cnt}}</text> 人</view>
+                <view class="bot-b">邀请人数</view>
+            </view>
+            <view>
+                <view class="bot-t"><text>{{data.cny_agent}}</text> 元</view>
+                <view class="bot-b">现金返佣</view>
+            </view>
+            <view>
+                <view class="bot-t" style="color:#F56E18"><text>{{data.power_cnt}}</text> T</view>
+                <view class="bot-b">算力返佣</view>
+            </view>
+        </view>
+    </view>
+    <!-- 我的邀请码 -->
+    <view class="invitation">
+        <view class="inv-tit">我的邀请码</view>
+        <view class="inv-bot">
+            <view class="tiao">
+                <view class="tiao-tit">- 我的专属邀请码 -</view>
+                <view class="tiao-warp">{{invite_code}}</view>
+            </view>
+            <!-- 复制 -->
+            <view class="copy" bindtap="copyText" data-text="{{invite_code}}">复制链接邀请注册</view>
+            <view class="wz">点击将自动复制链接及注册，请提醒被邀请人注册时填写对应邀请码注册；当被邀请人注册成功并下单后即可获得对应奖励。</view>
+        </view>
+    </view>
+    <!-- 详情列表 -->
+    <view class="details">
+        <view class="det-tit">详情列表</view>
+        <view class="det-bot">
+            <view class="switch">
+                <view class=" {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="tabNav">邀请列表</view>
+                <view class=" {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="tabNav">返佣详情</view>
+                <view class=" {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="tabNav">算力返佣详情</view>
+            </view>
+
+            <view class="switch-box" hidden="{{currentTab != 0}}">
+                <view class="switch-box-tit">
+                    <view style="width:334rpx">手机号</view>
+                    <view style="width:334rpx">时间</view>
+                </view>
+                <scroll-view class="hd" scroll-y="true" style="height: 620rpx">
+                    <view class="hd-box">
+                        <block wx:for="{{yq}}" wx:key="index">
+                            <view class="hd-list">
+                                <view style="width:270rpx">{{item.user_mobile}}</view>
+                                <view style="width:334rpx">{{item.addtime}}</view>
+                            </view>
+                        </block>
+                    </view>
+                </scroll-view>
+            </view>
+            <!-- 金额返佣 -->
+            <view class="switch-box" hidden="{{currentTab != 1}}">
+                <view class="switch-box-tit">
+                    <view style="width:230rpx">返佣形式</view>
+                    <view style="width:230rpx">返佣金额</view>
+                    <view style="width:230rpx">时间</view>
+                </view>
+                <scroll-view class="hd" scroll-y="true" style="height: 620rpx">
+                    <view class="hd-box">
+                        <block wx:for="{{rmb}}" wx:key="index">
+                            <view class="hd-list">
+                                <view style="width:230rpx;height:72rpx;line-height: 72rpx">{{item.agent_level}}</view>
+                                <view style="width:230rpx;height:72rpx;line-height: 72rpx"><text style="font-size:20rpx">¥</text>{{item.agent_v}}</view>
+                                <view style="width:230rpx;height:72rpx;">{{item.addtime}}</view>
+                            </view>
+                        </block>
+                    </view>
+                </scroll-view>
+            </view>
+            <!-- 算力返佣 -->
+            <view class="switch-box" hidden="{{currentTab != 2}}">
+                <view class="switch-box-tit">
+                    <view style="width:230rpx">返佣形式</view>
+                    <view style="width:230rpx">返佣算力</view>
+                    <view style="width:230rpx">时间</view>
+                </view>
+                <scroll-view class="hd" scroll-y="true" style="height: 620rpx">
+                    <view class="hd-box">
+                        <block wx:for="{{sl}}" wx:key="index">
+                            <view class="hd-list">
+                                <view style="width:230rpx;height:72rpx;line-height: 72rpx">{{item.agent_level}}</view>
+                                <view style="width:230rpx;height:72rpx;line-height: 72rpx">{{item.agent_v}}T</view>
+                                <view style="width:230rpx;height:72rpx;">{{item.addtime}}</view>
+                            </view>
+                        </block>
+                    </view>
+                </scroll-view>
+            </view>
+            
+        </view>
+    </view>
+</view>

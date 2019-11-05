@@ -1,0 +1,6 @@
+<view class="border"></view>
+<view class="box">
+    <view class="list">
+        <web-view src="www.baidu.com" bindmessage=""></web-view>
+    </view>
+</view>

@@ -1,0 +1,16 @@
+page,view,image,swiper,swiper-item,navigator,video{
+  box-sizing: border-box
+}
+.iphonex_bottom{
+  bottom: 68rpx !important;
+}
+  
+.iphonex_bottom::after{
+  content: ' ';
+  position: fixed;
+  bottom: 0!important;
+  height: 68rpx!important;
+  width: 100%;
+  background: #fff;
+  
+}

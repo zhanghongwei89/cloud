@@ -1,0 +1,22 @@
+<view class="logo-img">
+    <image class="" src="../../icons/logo.png"></image>
+</view>
+<form class="" bindsubmit='formSubmit'>
+    <view class="box">
+        <view class="phone">
+            <input class="" value="{{phone}}" type="number" name="phone" bindinput="inputPhoneNum"  placeholder="请输入手机号" maxlength="11"></input>
+        </view>
+        <view class="yzm">
+            <input class="" value="" type="number" name="yzm" placeholder="请输入验证码" maxlength="6"></input>
+            <!-- <text wx:if="{{send}}" class="sendMsg" bindtap="sendMsg"open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">发送验证码</text> -->
+            <button wx:if="{{send}}" disabled="{{dis}}" class="sendMsg" open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">发送验证码</button>
+            <text wx:if="{{alreadySend}}" class="sendMsg" >{{second+"秒"}}</text>
+        </view>
+        <view class="xy">
+            <image class="" src="{{is == 0 ? '../../icons/wxz.png' : '../../icons/xz.png'}}" bindtap="radio"></image>
+            已阅读并同意
+            <navigator open-type="navigate" url="../agreement/agreement">《用户服务协议》</navigator>
+        </view>
+    </view>
+    <button class="tj" form-type='submit' >登录</button>
+</form>

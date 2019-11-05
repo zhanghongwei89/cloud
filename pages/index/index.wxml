@@ -1,0 +1,84 @@
+<view class="sy-top">
+    <!-- 首页轮播图 -->
+    <swiper class="sy-swiper"  indicator-dots indicator-color="rgba(0,0,0,.3)" indicator-active-color="white" autoplay circular >
+        <swiper-item class="" wx:for="{{thumb}}" wx:key="{{index}}" item-id="">
+            <navigator class="" target="" url="">
+               <image class="" src="{{url+item.thumb}}">
+                   
+               </image> 
+            </navigator>
+        </swiper-item>
+    </swiper>
+
+    <!-- 商品保证 -->
+    <view class="bz">
+        <view>
+            <image class="" style="width:36rpx" src="../../icons/zp.png" mode="widthFix"></image>
+            <text class="bz-text" space decode>正品保证</text>
+        </view>
+        <view>
+            <image class="" style="width:36rpx" src="../../icons/wly.png" mode="widthFix"></image>
+            <text class="bz-text" space decode>7天无理由</text>
+        </view>
+        <view>
+            <image class="" style="width:36rpx" src="../../icons/fh.png" mode="widthFix"></image>
+            <text class="bz-text" space decode>及时发货</text>
+        </view>
+    </view>
+
+    <!-- 消息推广 -->
+    <view class="extension">
+        <swiper class="ex-swiper" autoplay  current-item-id="" interval="3000" circular vertical>
+            <swiper-item item-id="" wx:for="{{message}}" wx:key="{{index}}">
+                <view class="ex-sw-item" data-index="{{item.id}}" bindtap="mid">
+                    <view class="ex-left">
+                            <image class="ex-lb" src="../../icons/lb.png"></image>
+                            <text class="ex-text">{{item.title}}</text>
+                    </view>
+                    <view class="ex-right">
+                            <image class="" src="../../icons/r.png" style="width:44rpx;height:44rpx"></image>
+                    </view>
+                </view>
+            </swiper-item>
+        </swiper>
+    </view>
+
+</view>
+<view class="sy-bot">
+    <!-- 底部连接推荐标题 -->
+    <view class="sy-bot-tit">
+        <view class="tjkj" hover-class="none" hover-stop-propagation="false">推荐矿机</view>
+        <view class="" hover-class="none" hover-stop-propagation="false">
+            <navigator class="" target="" url="../shop/shop" hover-class="navigator-hover" open-type="switchTab">
+                <text class="more-tj" selectable="false" space="false" decode="false">更多推荐</text>
+                <image class="" src="../../icons/r.png" style="width:44rpx;height:44rpx"></image>
+            </navigator>
+        </view>
+    </view>
+
+    <!-- 全部矿机 -->
+    <view class="all-kj">
+        <block wx:for="{{pro_data}}" wx:key="{{index}}">
+            <navigator class="kj-box" target="" url="../commodity/commodity?id={{item.id}}" hover-class="navigator-hover" open-type="navigate">
+                <view class="kj-img">
+                    <image class="" src="{{url+item.pro_thumb}}"  style="width:100%;height: 276rpx;" lazy-load="true"></image>
+                    <view class="bot-box">
+                        <view class="bot-tit">{{item.pro_title}}</view>
+                        <view class="xjb">
+                            <text wx:if="{{item.characteristic_1}}">{{item.characteristic_1}}</text>
+                            <text wx:if="{{item.characteristic_2}}">{{item.characteristic_2}}</text>
+                            <!-- <view class="" hover-class="none" hover-stop-propagation="false"></view> -->
+                            <text wx:if="{{item.characteristic_3}}">{{item.characteristic_3}}</text>
+                        </view>
+                        <view class="pro">￥{{item.price}}</view>
+                        <!-- <view class="isNew">{{item.is_new == 1 ? "新品" :(item.is_new == 0 ?"二手":"预售" )}}</view> -->
+                        <view class="isNew" wx:if='{{item.is_new==1}}'>新品</view>
+                        <view class="isNew" wx:elif='{{item.is_new==0}}'>二手</view>
+                        <view class="isNew" wx:elif='{{item.is_new==2}}'>预售</view>
+                        <view class="isNew" wx:else></view>
+                    </view>
+                </view>
+            </navigator>
+        </block>
+    </view>
+</view>

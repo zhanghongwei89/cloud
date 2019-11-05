@@ -1,0 +1,75 @@
+page{
+    background: #F7F7F7;
+}
+.border{
+    border-top: 2rpx solid #E1E9F0;
+}
+.status{
+    padding: 48rpx 30rpx 24rpx;
+    background: #fff;
+    text-align: center;
+    border-bottom: 2rpx dashed  #979797;
+}
+.sta-top>image{
+    width: 74rpx;
+    height: 74rpx;
+    margin-bottom: 20rpx;
+}
+.h1{
+    color: #484A4D;
+    font-size: 32rpx;
+    margin-bottom: 40rpx;
+    font-weight: 700;
+}
+.mode{
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 16rpx;
+}
+.m-l{
+    font-size: 28rpx;
+    color: #909499
+}
+.m-r{
+    font-size: 28rpx;
+    color: #484A4D
+}
+.btn-box{
+    display: flex;
+    justify-content: space-between;
+    padding: 60rpx 130rpx 40rpx;
+}
+.btn-box>view{
+    width:192rpx;
+    height:60rpx;
+    border-radius:32rpx;
+    border:2rpx solid rgba(204,204,204,1);
+    font-size: 28rpx;
+    color: #606366;
+    line-height: 60rpx;
+    text-align: center;
+}
+.tips{
+    padding: 32rpx 30rpx 24rpx;
+    background: #fff
+}
+.tips-tit>image{
+    width: 36rpx;
+    height: 36rpx;
+    margin-right: 8rpx;
+    vertical-align: -30%
+}
+.tips-tit>text{
+    font-size: 26rpx;
+    color: #484A4D;
+}
+.tips>.warp{
+    margin-top: 8rpx;
+    font-size: 24rpx;
+    color: #909499;
+}
+.lc-img{
+    width: 100%;
+    height: 176rpx;
+    margin-top: 24rpx;
+}

@@ -1,0 +1,72 @@
+{
+  "pages": [
+    "pages/index/index",
+    "pages/newsCoreNt/newsCoreNt",
+    "pages/user/user",
+    "pages/news/news",
+    "pages/newsCore/newsCore",
+    "pages/newsDet/newsDet",
+    "pages/shopCar/shopCar",
+    "pages/sign/sign",
+    "pages/register/register",
+    "pages/login/login",
+    "pages/judge/judge",
+    "pages/agreement/agreement",
+    "pages/skip/skip",
+    "pages/yqm/yqm",
+    "pages/invitation/invitation",
+    "pages/personal/personal",
+    "pages/orderDetails/orderDetails",
+    "pages/myorder/myorder",
+    "pages/shop/shop",
+    "pages/commodity/commodity",
+    "pages/order/order",
+    "pages/address/address",
+    "pages/Newconsignee/Newconsignee",
+    "pages/Editconsignee/Editconsignee",
+    "pages/time/time",
+    "pages/sucpayment/sucpayment",
+    "pages/faipayment/faipayment",
+    "pages/collection/collection",
+    
+    "pages/logs/logs"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#fff",
+    "backgroundColor":"#F7F7F7",
+    "navigationBarTextStyle": "black",
+    "backgroundColorTop":"#F7F7F7",
+    "backgroundColorBottom":"#F7F7F7"
+  },
+  "sitemapLocation": "sitemap.json",
+  "tabBar": {
+    "list": [
+      {
+      "pagePath": "pages/index/index",
+      "text": "首页",
+      "iconPath":"icons/home.png",
+      "selectedIconPath":"icons/home-active.png"
+      },
+      {
+        "pagePath": "pages/shop/shop",
+        "text": "商城",
+        "iconPath":"icons/shop.png",
+      "selectedIconPath":"icons/shop-active.png"
+      },
+      {
+        "pagePath": "pages/shopCar/shopCar",
+        "text": "购物车",
+        "iconPath":"icons/shopcar.png",
+      "selectedIconPath":"icons/shopcar-active.png"
+      },{
+        "pagePath": "pages/user/user",
+        "text": "我的",
+        "iconPath":"icons/my.png",
+      "selectedIconPath":"icons/my-active.png"
+      }
+    ],
+    "color":"#666",
+    "selectedColor":"#1878F5"
+  }
+}

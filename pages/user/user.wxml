@@ -1,0 +1,129 @@
+<view class="my-message">
+    <view class="my-mes-warp">
+        <view class="mes-warp-left">
+            <view class="portrait" hover-class="none" hover-stop-propagation="false" style="background:url(http://api.mypalmtech.cn/img/head.png) no-repeat;background-size:100%">
+                <!-- 头像 -->
+                <image class="tx-img" src="{{numericalVal !== 0 ? zjTx : user.avatarUrl}}" style="width: 124rpx;height: 124rpx;border-radius:50%"></image>
+            </view>
+            <view class="user-ph" hover-class="none" hover-stop-propagation="false">
+                <!-- <button class="btn" hidden="{{hid1}}" wx:if="{{canIUse}}" plain="default"  open-type="getUserInfo" bindgetuserinfo="bindGetUserInfo">
+                     授权登录
+                </button>
+                <button class="btn" hidden="{{hid2}}" wx:if="{{canIphone}}" plain="default"  open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber">
+                     授权手机号
+                </button> -->
+                <navigator wx:if="{{numericalVal == 0}}" class="dl-zc" target="" url="../login/login" hover-class="navigator-hover" open-type="navigate">登录/注册</navigator>
+                <view class="user-name" selectable="false" space="false" decode="false">{{numericalVal !== 0 ? zjNikename : nikeName}}</view>
+                <view class="user-phone" selectable="false" space="false" decode="false">{{numericalVal !== 0 ? zjPhone : mobile}}</view>
+            </view>
+        </view>
+        <view class="mes-warp-right">
+            <navigator class="" target="" url="" hover-class="navigator-hover" open-type="navigate">
+                <image class="w-r-r" src="../../icons/br.png"></image>
+            </navigator>
+        </view>
+    </view>
+    <view class="information" style="padding-left: 50rpx;padding-right: 70rpx;">
+        <!-- <view class="" hover-class="none" hover-stop-propagation="false">
+            <view class="inf-top">5</view>
+            <view class="inf-bot">优惠券</view>
+        </view> -->
+        <view class="" hover-class="none" hover-stop-propagation="false">
+            <view class="inf-top" wx:if="{{!data.commission}}">0.00</view>
+            <view class="inf-top" wx:if="{{data.commission}}">{{data.commission}}</view>
+            <view class="inf-bot">余额</view>
+        </view>
+        <view class="" hover-class="none" hover-stop-propagation="false" style="width:280rpx">
+            <view class="inf-top" wx:if="{{!data.profit}}">0.00000000</view>
+            <view class="inf-top"  wx:if="{{data.profit}}">{{data.profit}}</view>
+            <view class="inf-bot">BTC</view>
+        </view>
+    </view>
+</view>
+
+<view class="my-all">
+    <!-- 我的订单 -->
+    <view class="my-dd">
+        <view class="dd-top">
+            <view class="" hover-class="none" hover-stop-propagation="false">
+                我的订单
+            </view>
+            <view class="" hover-class="none" hover-stop-propagation="false">
+                <navigator class="" target="" url="../myorder/myorder?a=0" hover-class="navigator-hover" open-type="navigate">
+                    <text class="all-dd">全部订单</text>
+                    <image class="" src="../../icons/r.png" style="width:40rpx;height:40rpx;margin-left:20rpx;vertical-align:-26%"></image>
+                </navigator>
+            </view>
+        </view>
+        <view class="dd-bot">
+            <navigator class="" target="" url="../myorder/myorder?a=1" hover-class="navigator-hover" open-type="navigate">
+                <image class="dd-img" src="../../icons/dfk.png"></image>
+                <view class="dd-four" hover-class="none" hover-stop-propagation="false">待付款</view>
+            </navigator>
+            <navigator class="" target="" url="../myorder/myorder?a=2" hover-class="navigator-hover" open-type="navigate">
+                <image class="dd-img" src="../../icons/dsh.png"></image>
+                <view class="dd-four" hover-class="none" hover-stop-propagation="false">待收货</view>
+            </navigator>
+            <navigator class="" target="" url="../myorder/myorder?a=3" hover-class="navigator-hover" open-type="navigate">
+                <image class="dd-img" src="../../icons/ywc.png"></image>
+                <view class="dd-four" hover-class="none" hover-stop-propagation="false">已完成</view>
+            </navigator>
+            <navigator class="" target="" url="../myorder/myorder?a=4" hover-class="navigator-hover" open-type="navigate">
+                <image class="dd-img" src="../../icons/yqx.png"></image>
+                <view class="dd-four" hover-class="none" hover-stop-propagation="false">已取消</view>
+            </navigator>
+        </view>
+    </view>
+
+    <!-- 功能上部分 -->
+    <view class="gwdy">
+        <view bindtap="shopcar" class="gn-top">
+            <view class="gn-left">
+                <image class="gn-img" src="../../icons/gwc.png"></image>
+                <text class="gn-text" selectable="false" space="false" decode="false">购物车</text>
+            </view>
+            <view class="gn-right"><image class="r-img" src="../../icons/r.png"></image></view>
+        </view>
+        <view class="gn-top" bindtap="coll">
+            <view class="gn-left">
+                <image class="gn-img" src="../../icons/colle.png"></image>
+                <text class="gn-text" selectable="false" space="false" decode="false">我的收藏</text>
+            </view>
+            <view class="gn-right"><image class="r-img" src="../../icons/r.png"></image></view>
+        </view>
+        <view class="gn-top" bindtap="add">
+            <view class="gn-left">
+                <image class="gn-img" src="../../icons/addre.png"></image>
+                <text class="gn-text" selectable="false" space="false" decode="false">地址管理</text>
+            </view>
+            <view class="gn-right"><image class="r-img" src="../../icons/r.png"></image></view>
+        </view>
+        <view class="gn-top" bindtap="inv" style="border:none">
+            <view class="gn-left">
+                <image class="gn-img" src="../../icons/invit.png"></image>
+                <text class="gn-text" selectable="false" space="false" decode="false">邀请返佣</text>
+            </view>
+            <view class="gn-right"><image class="r-img" src="../../icons/r.png"></image></view>
+        </view>
+    </view>
+    <!-- 功能下部分 -->
+    <view class="gwdy">
+        <view class="gn-top" bindtap="news">
+            <view class="gn-left">
+                <image class="gn-img" src="../../icons/message.png"></image>
+                <text class="gn-text" selectable="false" space="false" decode="false">消息</text>
+            </view>
+            <view class="gn-right"><image class="r-img" src="../../icons/r.png"></image></view>
+        </view>
+        <navigator class="gn-top" url="../skip/skip" style="border:none">
+            <view class="gn-left">
+                <image class="gn-img" src="../../icons/service.png"></image>
+                <text class="gn-text" selectable="false" space="false" decode="false">服务中心</text>
+            </view>
+            <view class="gn-right"><image class="r-img" src="../../icons/r.png"></image></view>
+        </navigator>
+    </view>
+</view>
+<view class="logout" bindtap="logout">退出登录</view>
+<view class="zw"></view>
+

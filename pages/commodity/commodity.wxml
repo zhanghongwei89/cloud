@@ -1,0 +1,300 @@
+<swiper class="com-sw" indicator-dots indicator-color="rgba(0,0,0,.3)" indicator-active-color="blue" autoplay circular>
+    <block wx:for="{{proimg}}" wx:key="index">
+        <swiper-item class="" item-id="">
+            <image class="" src="{{url+item.img_path}}"></image>
+        </swiper-item>
+    </block>
+</swiper>
+<!-- 商品信息详情 -->
+<view class="commodity-details">
+    <view class="comtit">{{details.pro_title}}</view>
+    <view class="titej">{{details.pro_desc}}</view>
+    <view class="pro">
+        <view class="pro-left">
+            <view class="red-pro"><text>￥</text>{{details.price_dis}}</view>
+            <view class="s-pro"><text>￥</text>{{details.discount_price}}</view>
+        </view>
+        <view class="pro-right">
+            <view class="start" bindtap="coll">
+                <image class="" src="{{collImg}}"></image>
+                <view class="">{{collText}}</view>
+            </view>
+            <button open-type="share" class="share" style="margin-left:36rpx">
+                <image class="" src="../../icons/share.png"></image>
+                <view class="">分享</view>
+            </button>
+        </view>
+    </view>
+</view>
+<!-- 商品参数简易说明 -->
+<view class="description">
+    <view class="box" bindtap="fwsm">
+        <view class="fwsm">服务说明</view>
+        <view class="zpbz-box">
+            <block wx:for="{{details.service}}" wx:key="{{index}}">
+                <view class="zpbz">
+                    <image class="" src="{{url+item.icon}}"></image>
+                    <text class="">{{item.title}}</text>
+                </view>
+            </block>
+        </view>
+        <view class="r">
+            <image class="" src="../../icons/r.png"></image>
+        </view>
+    </view>
+    <view class="box" bindtap="spcs">
+        <view class="fwsm">商品参数</view>
+        <view class="ck-xz">查看</view>
+        <view class="r">
+            <image class="" src="../../icons/r.png"></image>
+        </view>
+    </view>
+    <view class="box" bindtap="spgg">
+        <view class="fwsm">商品规格</view>
+        <view class="ck-xz">选择</view>
+        <view class="r">
+            <image class="" src="../../icons/r.png"></image>
+        </view>
+    </view>
+    
+</view>
+<!-- 选项卡详细说明标题 -->
+<view class="swiper-box">
+    <view class="swiper-item {{current==0 ? 'on' : ''}}" data-current="0" bindtap="bar">商品介绍</view>
+    <view class="swiper-item {{current==1 ? 'on' : ''}}" data-current="1" bindtap="bar">详细参数</view>
+    <view class="swiper-item {{current==2 ? 'on' : ''}}" data-current="2" bindtap="bar">相关问题</view>
+</view>
+<!-- 选项卡详细说明 -->
+<view class="swiper-tab swiper-tab1 " hidden="{{current!='0'}}">
+    <!-- <text class="" selectable="false" space="false" decode="false">
+        {{details.pro_content}}
+    </text> -->
+    <rich-text nodes="{{a}}" bindtap="tap"></rich-text>
+</view>
+<view class="swiper-tab swiper-tab2" hidden="{{current!='1'}}">
+    <view class="bg-box">
+        <view class="bg-boxl" style="color:#5F6266;font-weight: 700;">产品概述</view>
+        <view class="bg-boxr" style="color:#5F6266;font-weight: 700;">规格参数</view>
+    </view>
+    <view class="bg-box">
+        <view class="bg-boxl">品牌</view>
+        <view class="bg-boxr">{{details.pro_title?details.pro_title:'-'}}</view>
+    </view>
+    <view class="bg-box">
+        <view class="bg-boxl">版本</view>
+        <view class="bg-boxr">{{details.version?details.version:'-'}}</view>
+    </view>
+    <view class="bg-box">
+        <view class="bg-boxl">型号</view>
+        <view class="bg-boxr">{{details.model?details.model:'-'}}</view>
+    </view>
+    <view class="bg-box">
+        <view class="bg-boxl">加密算法/币种</view>
+        <view class="bg-boxr">{{details.machine.hash?details.machine.hash:'-'}}</view>
+    </view>
+    <view class="bg-box">
+        <view class="bg-boxl">额定算力</view>
+        <view class="bg-boxr">{{details.machine.power?details.machine.power:'-'}}</view>
+    </view>
+    <view class="bg-box">
+        <view class="bg-boxl">额定功耗</view>
+        <view class="bg-boxr">{{details.machine.power_waste?details.machine.power_waste:'-'}}</view>
+    </view>
+    <view class="bg-box">
+        <view class="bg-boxl">能效比(25℃环境温度)</view>
+        <view class="bg-boxr">{{details.machine.hash?details.machine.hash:'-'}}</view>
+    </view>
+    <!-- 硬件配置 -->
+    <view class="bg-box" style="color:#5F6266;font-weight: 700;text-align:center;font-size: 28rpx;display: inline-block;width: 100%;padding-top: 16rpx;padding-bottom: 16rpx;">硬件配置</view>
+    <view class="bg-box">
+        <view class="bg-boxl">芯片数量</view>
+        <view class="bg-boxr">{{details.machine.number_chips?details.machine.number_chips:'-'}}</view>
+    </view>
+    <view class="bg-box">
+        <view class="bg-boxl">能算力板数量</view>
+        <view class="bg-boxr">{{details.machine.power_consumption_ratio?details.machine.power_consumption_ratio:'-'}}</view>
+    </view>
+    <view class="bg-box">
+        <view class="bg-boxl">网络连接方式</view>
+        <view class="bg-boxr">{{details.machine.network_connections?details.machine.network_connections:'-'}}</view>
+    </view>
+    <view class="bg-box">
+        <view class="bg-boxl">裸机尺寸 (长*宽*高),mm</view>
+        <view class="bg-boxr">{{details.machine.product_size?details.machine.product_size:'-'}}</view>
+    </view>
+    <view class="bg-box">
+        <view class="bg-boxl">裸机重量（kg）</view>
+        <view class="bg-boxr">{{details.machine.product_weight?details.machine.product_weight:'-'}}</view>
+    </view>
+    <view class="bg-box">
+        <view class="bg-boxl">噪音（dBA,25°C）</view>
+        <view class="bg-boxr">{{details.machine.noise?details.machine.noise:'-'}}</view>
+    </view>
+     <!-- 硬件配置 -->
+     <view class="bg-box" style="color:#5F6266;font-weight: 700;text-align:center;font-size: 28rpx;display: inline-block;width: 100%;padding-top: 16rpx;padding-bottom: 16rpx;">环境要求</view>
+     <view class="bg-box">
+         <view class="bg-boxl">工作温度（°C）</view>
+         <view class="bg-boxr">{{details.machine.working_temperature?details.machine.working_temperature:'-'}}</view>
+     </view>
+     <view class="bg-box">
+         <view class="bg-boxl">工作湿度（°C）</view>
+         <view class="bg-boxr">{{details.machine.working_humidity?details.machine.working_humidity:'-'}}</view>
+     </view>
+     <view class="bg-box">
+         <view class="bg-boxl">其它</view>
+         <view class="bg-boxr">-</view>
+     </view>
+</view>
+<view class="swiper-tab swiper-tab3" hidden="{{current!='2'}}">
+    <block wx:for="{{details.question}}" wx:key="{{index}}">
+        <view class="ques">
+            <view class="qu-top"><text class="blue-q"></text><text class="ques-tit">{{item.title}}</text></view>
+            <view class="qu-bot">{{item.content}}</view>
+        </view>
+    </block>
+</view>
+
+<!-- 底部 -->
+<view class="zw"></view>
+<!-- <view class="bot_btns {{isIphoneX ? 'iphonex_bottom':''}}"></view> -->
+<view class="botbar bot_btns {{isIphoneX ? 'iphonex_bottom':''}}">
+    <view class="bot-left">
+        <view class="kf" bindtap="kf">
+            <image class="" src="../../icons/service.png" style="width:48rpx;height:48rpx"></image>
+            <view class="" style="color:#909499;font-size:20rpx">客服</view>
+        </view>
+        <navigator class="tgw" open-type="switchTab" url="../shopCar/shopCar">
+            <image class="" src="../../icons/gwc.png" style="width:48rpx;height:48rpx"></image>
+            <view class="" style="color:#909499;font-size:20rpx">购物车</view>
+        </navigator>
+    </view>
+    <view class="bot-cent" bindtap="spgg">加入购物车</view>
+    <view class="bot-right" bindtap="spgg">立即购买</view>
+</view>
+<!-- 弹出层 -->
+<view class="zzc" bindtap="close" hidden="{{all != '0'}}"></view>
+<!-- 服务说明弹出 -->
+<view class="tc-fw" hidden="{{fw != '0'}}">
+    <view class="tc-fu-tit">
+        <text class="">服务说明</text>
+        <image class="" bindtap="close" src="../../icons/close.png"></image>
+    </view>
+    <scroll-view scroll-y="true" class="tf-sy">
+        <block wx:for="{{details.service}}"  wx:key="{{index}}">
+            <view class="tc-fw-box">
+                <view class="tc-fw-warp">
+                    <view>
+                        <image class="" src="{{url+item.icon}}" style="width:48rpx;height:48rpx;vertical-align: -18rpx"></image>
+                        <text class="">{{item.title}}</text>
+                    </view>
+                    <view class="tc-w2">{{item.content}}</view>
+                </view>
+            </view>
+        </block>
+    </scroll-view>
+</view>
+<!-- 商品参数 -->
+<view class="cs" hidden="{{cs != '0'}}">
+    <view class="tc-fu-tit">
+        <text class="">商品参数</text>
+        <image class="" bindtap="close" src="../../icons/close.png"></image>
+    </view>
+    <view class="tc-fw-box cs-box">
+        <view>
+            <text class="cs-box-l">额定算力</text>
+            <text class="cs-box-r">{{details.machine.power?details.machine.power:'-'}}</text>
+        </view>
+        <view>
+            <text class="cs-box-l">额定功耗</text>
+            <text class="cs-box-r">{{details.machine.power_waste?details.machine.power_waste:"-"}}</text>
+        </view>
+        <view>
+            <text class="cs-box-l">产品尺寸</text>
+            <text class="cs-box-r">{{details.machine.product_size?details.machine.product_size:'-'}}</text>
+        </view>
+        <view>
+            <text class="cs-box-l">产品重量</text>
+            <text class="cs-box-r">{{details.machine.product_weight?details.machine.product_weight:'-'}}</text>
+        </view>
+        <view>
+            <text class="cs-box-l">网络连接</text>
+            <text class="cs-box-r">{{details.machine.network_connections?details.machine.network_connections:'-'}}</text>
+        </view>
+        <view>
+            <text class="cs-box-l">工作温度</text>
+            <text class="cs-box-r">{{details.machine.working_temperature?details.machine.working_temperature:'-'}}</text>
+        </view>
+       
+    </view>
+</view>
+<!-- 商品规格 -->
+<view class="gg bot_btns {{isIphoneX ? 'iphonex_bottom':''}}" hidden="{{gg != '0'}}">
+    <view class="tc-fu-tit">
+        <text class="">商品规格</text>
+        <image class="" bindtap="close" src="../../icons/close.png"></image>
+    </view>
+    <view class="gg-box">
+        <!-- 标题信息 -->
+        <view class="gg-box-top">
+            <image class="" src="{{url+details.pro_thumb}}"></image>
+            <view class="" style="position: relative;">
+                <view class="h1-titi">{{details.pro_title}}</view>
+                <view class="qzby">{{details.pro_desc}}</view>
+                <view class="red-jq"><text>￥</text>{{details.price}}</view>
+            </view>
+        </view>
+        <!-- 购买方式 -->
+        <view class="gmfs">
+            <view class="gmfs-h1">购买方式</view>
+            <view class="xzfs {{xzfs==1?'xz':''}}" data-index="1" bindtap="xzfs">矿场托管</view>
+            <view class="xzfs {{xzfs==2?'xz':''}}" data-index="2" bindtap="xzfs">送货到家</view>
+        </view>
+        <!-- 数量参数 -->
+        <view class="slcs">
+            <view class="jjss">
+                <view class="slcs-l">数量</view>
+                <view class="jjcz">
+                    <image class="" bindtap="jian" src="../../icons/jian-ac.png"></image>
+                    <input class="jj-sl" bindinput="jjsl" name="sl"  value="{{num}}" type="number" ></input>
+                    <image class="" bindtap="jia" src="../../icons/jia.png"></image>
+                </view>
+            </view>
+            <block wx:if="{{xzfs == 1}}">
+                <view>
+                    <view class="slcs-l">电费</view>
+                    <view class="slcs-r">¥{{details.ele_fee}}/度</view>
+                </view>
+                <view>
+                    <view class="slcs-l">服务费</view>
+                    <view class="slcs-r">日收益{{details.pro_expense}}%</view>
+                </view>
+                <view>
+                    <view class="slcs-l">上机时间</view>
+                    <view class="slcs-r">{{details.start_days_dis}}</view>
+                </view>
+            </block>
+            <block wx:if="{{xzfs == 2}}">
+                <view>
+                    <view class="slcs-l">邮费价格</view>
+                    <view class="slcs-r" wx:if="{{details.postage == 0}}">货到付款</view>
+                    <view class="slcs-r" wx:if="{{details.postage !== 0}}">￥{{details.postage}}/台</view>
+                </view>
+                <view>
+                    <view class="slcs-l">调试服务费</view>
+                    <view class="slcs-r">￥{{details.service_fee}}/台</view>
+                </view>
+                <view>
+                    <view class="slcs-l">发货时间</view>
+                    <view class="slcs-r">付款成功后{{details.post_days}}天内</view>
+                </view>
+            </block>
+            
+        </view>
+    </view>
+    <view class="gg-bot">
+        <view bindtap="addCar">加入购物车</view>
+        <view class="gm-nav" bindtap="sd">立即购买</view>
+    </view>
+</view>
+<!-- 添加成功 -->
+<view class="add" hidden="{{add!='0'}}">{{msg}}</view>

@@ -1,0 +1,120 @@
+<view class="bar-border"></view>
+<!-- 收货地址 -->
+<view class="address" wx:if="{{show}}">
+    <!-- 添加地址 -->
+    <block wx:if="{{!address.mobile}}">
+        <navigator  url="../Newconsignee/Newconsignee" class="address-top">
+            <view class="new-address">
+                <image class="" src="../../icons/add.png" ></image>
+                <text class="" selectable="false" space="false" decode="false">添加收货地址</text>
+            </view>
+        </navigator>
+    </block>
+    <!-- 默认地址 -->
+    <block wx:if="{{address.mobile}}">
+        <navigator  url="../address/address" class="address-bot">
+            <view class="message">
+                <text class="name">{{address.name}}</text>
+                <text class="phone">{{address.mobile}}</text>
+                <text class="mr">默认</text>
+            </view>
+            <!-- <view class="mr-address">{{address.province + address.city + address.state + address.address}}</view> -->
+            <text>{{address.province}}</text>
+            <text>{{address.city}}</text>
+            <text>{{address.state }}</text> 
+            <text>{{address.address}}</text>
+            <image class="r-jt" src="../../icons/r.png"></image>
+            <image class="b-bk" src="../../icons/b-bk.png"></image>
+        </navigator>
+    </block>
+</view>
+<!-- 商品信息标题 -->
+<view class="information-tit">商品信息</view>
+<!-- 商品信息 -->
+<block wx:for="{{arr}}" wx:key="index">
+    <view class="information">
+        <view class="infor-top">
+            <image class="infor-top-l" src="{{url+arr[index].pro_thumb}}"></image>
+            <view class="infor-top-r">
+                <view class="infor-title">{{arr[index].pro_title}}</view>
+                <view class="xzfs">{{arr[index].p_type == '1'?'托管服务':'邮寄服务'}}</view>
+                <view class="spjq">
+                    <view class="spjq-l"><text>￥</text>{{arr[index].p_price}}</view>
+                    <view class="spjq-r">X<text>{{arr[index].p_count}}</text></view>
+                </view>
+            </view>
+        </view>
+        <view class="infor-bot">
+            <view class="infor-bot-l">{{arr[index].p_type == '1'?'托管服务费':'邮寄服务费'}}</view>
+            <view class="infor-bot-r"  data-index="{{index}}" bindtap="details">
+                <text>{{xxsm}}</text>
+                <image class="qh-img" src="{{duImg}}"></image>
+            </view>
+        </view>
+        <view class="infor-show" wx:if="{{item.c !== 1}}" data-index="{{index}}">
+            <!-- 托管or邮寄 -->
+            <block>
+                <view>
+                    <view class="infor-show-l">{{arr[index].p_type == '1'?'电费':'调试服务费'}}</view>
+                    <view class="infor-show-r">{{arr[index].p_type == '1'?'日功耗约34度，将从每日收益中扣除':'￥'+service_fee+'×1'}}</view>
+                </view>
+                <view>
+                    <view class="infor-show-l">{{arr[index].p_type == '1'?'服务费':'邮费'}}</view>
+                    <view class="infor-show-r">{{arr[index].p_type == '1'?'每日收益'+(arr[index].pro_expense == undefined ? '7' :arr[index].pro_expense)+'%':'￥'+postage+'×1'}}</view>
+                </view>
+            </block>
+        </view>
+    </view>
+</block>
+<!-- 优惠券 -->
+<view class="coupon">
+    <view>
+        <view class="cou-l">活动优惠</view>
+        <!-- <view class="cou-r"><text class="sdjm">APP首单减免10元</text>-¥10.00</view> -->
+        <view class="cou-r" style="color:black;padding-right: 20rpx;">无可用</view>
+    </view>
+    <view>
+        <view class="cou-l">优惠券</view>
+        <view class="cou-r" style="color:#606366">
+            <text>无可用</text>
+            <image class="" src="../../icons/r.png"></image>
+        </view>
+    </view>
+    
+</view>
+<!-- 商品合计 -->
+<view class="total">
+    <block wx:if="{{show}}">
+        <view>
+            <view class="total-l">调试服务费</view>
+            <view class="total-r">+ ¥{{service_fee}}</view>
+        </view>
+        <view>
+            <view class="total-l">邮费</view>
+            <view class="total-r">+ ¥{{postage}}</view>
+        </view>
+    </block>
+    <view>
+        <view class="total-l">商品合计</view>
+        <view class="total-r" style="color:#F54427;font-weight:700">¥{{nodiscount?nodiscount:totalMoney}}</view>
+    </view>
+</view>
+<!-- 支付方式 -->
+<view class="method">
+    <view class="met-tot">支付方式</view>
+    <view class="met-bot">
+        <view class="met-bl">
+            <image class="" src="{{!isSelect?'../../icons/xz.png':'../../icons/wxz.png'}}" bindtap="xz"></image>
+            <text class="" selectable="false" space="false" decode="false">在线支付</text>
+        </view>
+        <view class="met-br">目前仅支持线上付款</view>
+    </view>
+</view>
+<!-- 占位 -->
+<view class="zw"></view>
+<view class="sub {{isIphoneX ? 'iphonex_bottom':''}}">
+    <view class="sub-l"><text style="font-weight:400">应付金额：<text style="color: #F54327;font-weight:700">￥</text></text>{{nodiscount?nodiscount:totalMoney}}</view>
+    <view class="sub-r" bindtap="{{!buttonClicked?'sub':''}}">提交订单</view>
+</view>
+<!-- 提示 -->
+<view class="tips" wx:if="{{tips == 1}}">{{msg}}</view>

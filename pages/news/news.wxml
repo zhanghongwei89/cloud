@@ -1,0 +1,42 @@
+<!-- 活动消息 -->
+<view class="new-box" bindtap="new" data-index="{{data[0].msg_type}}">
+    <view class="new-boxl">
+        <image class="" src="../../icons/a-new.png"></image>
+        <view>
+            <view class="h1">{{data[0].type_title}}</view>
+            <view class="h2">{{data[0].title}}</view>
+        </view>
+    </view>
+    <view class="new-boxr">
+        <image class="" src="../../icons/r.png"></image>
+    </view>
+    <view class="tips" wx:if="{{data[0].unread_cnt !== 0}}">{{data[0].unread_cnt}}</view>
+</view>
+<!-- 服务消息 -->
+<view class="new-box" bindtap="new" data-index="{{data[1].msg_type}}">
+    <view class="new-boxl">
+        <image class="" src="../../icons/s-new.png"></image>
+        <view>
+            <view class="h1">{{data[1].type_title}}</view>
+            <view class="h2">{{data[1].title}}</view>
+        </view>
+    </view>
+    <view class="new-boxr">
+        <image class="" src="../../icons/r.png"></image>
+    </view>
+    <view class="tips" wx:if="{{data[1].unread_cnt !== 0}}">{{data[1].unread_cnt}}</view>
+</view>
+<!-- 系统消息 -->
+<view class="new-box" bindtap="new" data-index="{{data[2].msg_type}}">
+    <view class="new-boxl">
+        <image class="" src="../../icons/x-new.png"></image>
+        <view>
+            <view class="h1">{{data[2].type_title}}</view>
+            <view class="h2">{{data[2].title}}</view>
+        </view>
+    </view>
+    <view class="new-boxr">
+        <image class="" src="../../icons/r.png"></image>
+    </view>
+    <view class="tips" wx:if="{{data[2].unread_cnt !== 0}}">{{data[2].unread_cnt}}</view>
+</view>

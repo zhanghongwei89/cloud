@@ -1,0 +1,75 @@
+.logo-img{
+    margin: 0 auto;
+    margin-top: 32rpx;
+    text-align: center;
+    margin-bottom: 80rpx;
+}
+.logo-img>image{
+    width: 168rpx;
+    height: 168rpx;
+}
+.box{
+    padding-left: 60rpx;
+    padding-right: 60rpx;
+}
+.box>.phone,.yzm,.yqm{
+    width: 100%;
+    padding-bottom: 20rpx;
+    border-bottom: 2rpx solid #F0F0F0;
+    margin-bottom: 32rpx;
+}
+.box>view>input{
+    color: #484A4D;
+    font-size: 32rpx;
+    width: 75%;
+    display: inline-block
+}
+.yzm>text{
+    color: #484A4D;
+    font-size: 30rpx;
+    vertical-align: 30%;
+    display: inline-block;
+    width: 25%;
+    text-align: right
+}
+.yzm>button{
+    color: #484A4D;
+    font-size: 30rpx;
+    vertical-align: 12%;
+    display: inline-block;
+    width: 25%;
+    text-align: right;
+    padding-left: 0;
+    padding-right: 0;
+    background: #fff;
+    border: none;
+    line-height: normal;
+}
+button::after{
+    border: none
+}
+.xy{
+    color: #787B80;
+    font-size: 28rpx;
+    margin-bottom: 80rpx;
+}
+.xy>image{
+    width: 40rpx;
+    height: 40rpx;
+    vertical-align: -30%
+}
+.xy>navigator{
+    color: #1878F5;
+    display: inline-block
+}
+.tj{
+    width:630rpx;
+    height:84rpx;
+    background:rgba(24,120,245,1);
+    border-radius:42rpx;
+    margin: 0 auto;
+    line-height: 84rpx;
+    color: #fff;
+    font-size: 32rpx;
+    text-align: center;
+}

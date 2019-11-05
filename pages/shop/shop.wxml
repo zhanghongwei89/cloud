@@ -1,0 +1,77 @@
+<view class="swiper-tab" style="padding-left: 130rpx;padding-right: 130rpx;">
+    <view class="swiper-tab-list {{currentTab==0 ? 'on' : ''}}" data-current="0" bindtap="tabNav">人气排名 
+        <image class="pop-img" src="{{currentTab==0 ?'../../icons/rq-show.png' : '../../icons/rq.png'}}"  style="width:28rpx;height: 28rpx;margin-left:8rpx;vertical-align:-10%"></image> 
+    </view>
+    <view class="swiper-tab-list {{currentTab==1 ? 'on' : ''}}" data-current="1" bindtap="tabNav">价格排序 
+        <image class="pri-img" src="{{imgUrl}}" style="width:28rpx;height: 28rpx;margin-left:8rpx;vertical-align:-10%"></image>
+    </view>
+    <!-- <view class="swiper-tab-list {{currentTab==2 ? 'on' : ''}}" data-current="2" bindtap="tabNav">筛选商品 
+        <image class="" src="{{currentTab==2 ? '../../icons/sx-show.png' : '../../icons/sx.png'}}" style="width:28rpx;height: 28rpx;margin-left:8rpx;vertical-align:-10%"></image> 
+    </view> -->
+</view>
+<!-- 人气 -->
+<view class="swiper-box" hidden="{{currentTab!='0'}}">
+    <view class="all-kj">
+        <block wx:for="{{product}}" wx:key="{{index}}">
+            <navigator class="kj-box" target="" url="../commodity/commodity?id={{item.id}}" hover-class="navigator-hover" open-type="navigate">
+                <view class="kj-img">
+                    <image class="" src="{{url+item.pro_thumb}}"  lazy-load="true"></image>
+                    <view class="pro-tit">{{item.pro_title}}</view>
+                    <view class="xj">
+                        <text class="characteristic" wx:if="{{item.characteristic_1}}">{{item.characteristic_1}}</text>
+                        <text class="characteristic" wx:if="{{item.characteristic_2}}">{{item.characteristic_2}}</text>
+                        <view class="characteristic" wx:if="{{item.characteristic_3}}">{{item.characteristic_3}}</view>
+                    </view>
+                    <view class="price">￥{{item.price}}</view>
+                    <!-- <view class="isNew">{{item.is_new == 1 ? "新品" :(item.is_new == 0 ?"二手":"预售" )}}</view> -->
+                    <view class="isNew" wx:if='{{item.is_new==1}}'>新品</view>
+                    <view class="isNew" wx:elif='{{item.is_new==2}}'>预售</view>
+                    <view class="isNew" wx:elif='{{item.is_new==0}}'>二手</view>
+                    <view class="isNew" wx:else></view>
+                </view>
+            </navigator>
+        </block>
+    </view>
+</view>
+<!-- 价格 -->
+<view class="swiper-box" hidden="{{currentTab!='1'}}">
+    <view class="all-kj">
+        <block wx:for="{{priProduct}}" wx:key="{{index}}">
+            <navigator class="kj-box" target="" url="../commodity/commodity?id={{item.id}}" hover-class="navigator-hover" open-type="navigate">
+                <view class="kj-img">
+                    <image class="" src="{{url+item.pro_thumb}}"  lazy-load="true"></image>
+                    <view class="pro-tit">{{item.pro_title}}</view>
+                    <view class="xj">
+                        <text class="characteristic" wx:if="{{item.characteristic_1}}">{{item.characteristic_1}}</text>
+                        <text class="characteristic" wx:if="{{item.characteristic_2}}">{{item.characteristic_2}}</text>
+                        <view class="characteristic" wx:if="{{item.characteristic_3}}">{{item.characteristic_3}}</view>
+                    </view>
+                    <view class="price">￥{{item.price}}</view>
+                    <!-- <view class="isNew">{{item.is_new == 1 ? "新品" :"二手"}}</view> -->
+                    <view class="isNew" wx:if='{{item.is_new==1}}'>新品</view>
+                    <view class="isNew" wx:elif='{{item.is_new==2}}'>预售</view>
+                    <view class="isNew" wx:elif='{{item.is_new==0}}'>二手</view>
+                    <view class="isNew" wx:else></view>
+                </view>
+            </navigator>
+        </block>
+    </view>
+</view>
+<!-- 搜索 -->
+<!-- <view class="swiper-box" hidden="{{currentTab!='2'}}" style="padding-right:0">
+    <block wx:key="index" wx:for="{{screend}}" wx:for-index="father_index">
+        <view class="sx-box"  data-index="{{father_index}}">
+            <view class="h1">{{item.title}}</view>
+            <view class="sxWarp">
+            <block wx:key="index" wx:for="{{item.date}}">
+                <view bindtap="selectApply" class="cut {{item.isSelect?'cut-blue':''}}" data-zi="{{index}}" data-index="{{father_index}}">{{item.name}}</view>
+            </block>
+        </view>
+        </view>
+    </block>
+    重置or确定
+    <view class="res">
+        <view class="res-left" bindtap="res">重置</view>
+        <view class="res-right" bindtap="qr" style="background:#1878F5;color:#fff;">确定</view>
+    </view>
+</view> -->

@@ -1,0 +1,21 @@
+<view class="border"></view>
+<!-- 时间显示 -->
+<view class="timer">
+    <image class="" src="../../icons/cg.png"></image>
+    <view class="tjcg">订单提交成功</view>
+    <!-- <text>{{jgdjs_jo.hour}}</text>小时 -->
+    <view class="tjsj">请在<text>{{jgdjs_jo.min}}</text>分<text>{{jgdjs_jo.sec}}</text> 秒内完成支付</view>
+    <view class="zfje">支付金额<text> ¥{{total == ''?time.total_fee:total}}</text></view>
+</view>
+
+<!-- 支付方式 -->
+<view class="zffs">
+    <view class="zf-tit">支付方式</view>
+    <view class="wxzf" bindtap="zf">
+        <view class="wxzf-left">
+            <image class="" src="../../icons/wx.png"></image>
+            <text>微信支付</text>
+        </view>
+        <view class="wxzf-right"><image class="" src="../../icons/r.png" ></image></view>
+    </view>
+</view>

@@ -1,0 +1,13 @@
+page{
+    background: #F7F7F7;
+}
+.border{
+    border-top: 2rpx solid #E1E9F0;
+}
+.box{
+    padding: 0 30rpx;
+    background: #fff;
+}
+.list{
+    
+}

@@ -1,0 +1,48 @@
+<!-- 活动消息 -->
+<block wx:if="{{msg_type == 1}}" wx:for="{{data}}" wx:key="index">
+    <view class="new"  wx:for="{{data[index].list}}" wx:key="index">
+        <view class="tit-box">
+            <view class="tit">{{item.addtime}}</view>
+        </view>
+        <view class="act" data-index="{{item.mid}}" bindtap="goNewDet">
+            <view class="act-tit">
+                <view class="act-titL">{{item.title}}</view>
+                <view class="act-titR {{item.status == 0 ?'ccc' :''}}">{{item.status == 0 ?'已结束' :'进行中'}}</view>
+            </view>
+            <view class="p">{{item.notice_desc}}</view>
+            <image class="act-img" src="{{url+item.image}}"></image>
+        </view>
+    </view>
+</block>
+<!-- 服务消息 -->
+<block wx:if="{{msg_type == 2}}" wx:for="{{data}}" wx:key="index">
+    <view class="new"  wx:for="{{data[index].list}}" wx:key="index">
+        <view class="tit-box">
+            <view class="tit">{{item.addtime}}</view>
+        </view>
+        <view class="new-box" data-index="{{item.mid}}" bindtap="goNewDet">
+            <view class="h1">{{item.title}}</view>
+            <view class="h2">{{item.notice_desc}}</view>
+            <view class="bot">
+                <view class="bot-l">查看详情</view>
+                <view class="bot-r"><image class="" src="../../icons/r.png"></image></view>
+            </view>
+        </view>
+    </view>
+</block>
+<!-- 系统消息 -->
+<block wx:if="{{msg_type == 3}}" wx:for="{{data}}" wx:key="index">
+    <view class="new"  wx:for="{{data[index].list}}" wx:key="index">
+        <view class="tit-box">
+            <view class="tit">{{item.addtime}}</view>
+        </view>
+        <view class="new-box" data-index="{{item.mid}}" bindtap="goNewDet">
+            <view class="h1">{{item.title}}</view>
+            <view class="h2">{{item.notice_desc}}</view>
+            <view class="bot">
+                <view class="bot-l">查看详情</view>
+                <view class="bot-r"><image class="" src="../../icons/r.png"></image></view>
+            </view>
+        </view>
+    </view>
+</block>
