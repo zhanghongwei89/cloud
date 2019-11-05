@@ -20,7 +20,6 @@ Page({
       mid:options.mid
     })
     this.getNewsDet()
-    
   },
 
   // 获取消息详情
