@@ -35,7 +35,7 @@ Page({
       // header: {}, // 设置请求的 header
       success: function(res){
         // success
-        // console.log(res.data.data)
+        console.log(res.data.data)
         that.setData({
           data:res.data.data
         })

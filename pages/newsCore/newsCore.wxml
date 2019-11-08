@@ -10,8 +10,12 @@
                 <view class="act-titR {{item.status == 0 ?'ccc' :''}}">{{item.status == 0 ?'已结束' :'进行中'}}</view>
             </view>
             <view class="p">{{item.notice_desc}}</view>
-            <image class="act-img" src="{{url+item.image}}"></image>
+            <image wx:if="{{item.image}}" class="act-img" src="{{url+item.image}}"></image>
         </view>
+    </view>
+    <view class="msg-img" wx:if="{{!data[0].list[0].mid}}">
+        <image src="../../icons/no-msg.png"></image>
+        <view>暂无消息</view>
     </view>
 </block>
 <!-- 服务消息 -->
@@ -23,11 +27,17 @@
         <view class="new-box" data-index="{{item.mid}}" bindtap="goNewDet">
             <view class="h1">{{item.title}}</view>
             <view class="h2">{{item.notice_desc}}</view>
+            <image wx:if="{{item.image}}" class="act-img" src="{{url+item.image}}"></image>
+            <view class="h3"></view>
             <view class="bot">
                 <view class="bot-l">查看详情</view>
                 <view class="bot-r"><image class="" src="../../icons/r.png"></image></view>
             </view>
         </view>
+    </view>
+    <view class="msg-img" wx:if="{{!data[0].list[0].mid}}">
+        <image src="../../icons/no-msg.png"></image>
+        <view>暂无消息</view>
     </view>
 </block>
 <!-- 系统消息 -->
@@ -39,10 +49,16 @@
         <view class="new-box" data-index="{{item.mid}}" bindtap="goNewDet">
             <view class="h1">{{item.title}}</view>
             <view class="h2">{{item.notice_desc}}</view>
+            <image wx:if="{{item.image}}" class="act-img" src="{{url+item.image}}"></image>
+            <view class="h3"></view>
             <view class="bot">
                 <view class="bot-l">查看详情</view>
                 <view class="bot-r"><image class="" src="../../icons/r.png"></image></view>
             </view>
         </view>
+    </view>
+    <view class="msg-img" wx:if="{{!data[0].list[0].mid}}">
+        <image src="../../icons/no-msg.png"></image>
+        <view>暂无消息</view>
     </view>
 </block>
