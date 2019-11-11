@@ -49,7 +49,7 @@ Page({
   coll:function(){
     let that = this
     let collected = that.data.details.is_collected
-    console.log(collected)
+    // console.log(collected)
     if(that.data.token == ''){
       wx.showToast({
         title: '请登录',
@@ -81,7 +81,7 @@ Page({
               icon: 'none',
               duration: 2000
             })
-            if(collected == 1){
+            if(res.data.msg == '已取消收藏'){
               that.setData({
                 collImg:'../../icons/start.png',
                 collText:'收藏',
