@@ -1,6 +1,6 @@
 <view class="bar-border"></view>
 <!-- 收货地址 -->
-<view class="address" wx:if="{{show}}">
+<view class="address">
     <!-- 添加地址 -->
     <block wx:if="{{!address.mobile}}">
         <navigator  url="../Newconsignee/Newconsignee" class="address-top">

@@ -18,7 +18,7 @@ Page({
     brr:[],
     url:'http://www.mypalmcloud.com/attachment/',
     totalMoney:0,
-    show:false,
+    // show:false,
     service_fee:0,
     postage:0,
     nodiscount:0,
@@ -175,7 +175,7 @@ Page({
           // console.log(num)
           // console.log(count)
           that.setData({
-            show:true,
+            // show:true,
             postage:item.postage,
             service_fee:item.service_fee,
             nodiscount:count
@@ -213,7 +213,16 @@ Page({
       return false
     }
     if(this.data.address == undefined){
-      var aid = ''
+      // var aid = ''
+      wx.showToast({
+        title: '请填写联系信息',
+        icon: 'none',
+        duration: 2000
+      })
+      that.setData({
+        buttonClicked: false
+      })
+      return false
     }else{
       var aid = this.data.address.aid
     }
