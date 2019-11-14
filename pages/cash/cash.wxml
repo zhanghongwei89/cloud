@@ -1,0 +1,16 @@
+<view class="h1">支付宝账户</view>
+<view class="address-box">
+    <input class="" value="{{name}}" name="name" type="text" placeholder="请输入真实姓名" maxlength="140" bindinput="name"></input>
+    <input class="" value="{{add}}" name="add" type="text" placeholder="请输入支付宝账户" maxlength="140" bindinput="add"></input>
+</view>
+<view class="h1">提现金额</view>
+<view class="btb-box">
+    <image class="" src="../../icons/cny.png"></image>
+    <input class="" value="{{cny}}" name="cny" type="number" placeholder="请输入金额" maxlength="140" bindinput="cny"></input>
+    <text bindtap="max">最大</text>
+</view>
+<view class="balance">
+    <view class="bal-left">余额：￥{{rmb}}</view>
+    <view class="bal-right">手续费：3%</view>
+</view>
+<view class="btn" bindtap="btn">提交审核</view>

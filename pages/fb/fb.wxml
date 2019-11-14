@@ -1,0 +1,8 @@
+<view class="h1">步骤一：</view>
+<view class="h2">点击转入钱包，并输入钱包地址和转入数量</view>
+<image class="img-one" src="http://api.mypalmtech.cn/img/one.png"></image>
+<view class="h1">步骤二：</view>
+<view class="h2">登录https://www.okex.me/otc等交易平台，根据网站引导卖出货币获得现金收益。</view>
+<image class="img-two" src="http://api.mypalmtech.cn/img/two.png"></image>
+<view class="zw"></view>
+<view class="ljdh"  bindtap="copyText" data-text="https://www.okex.me/otc">立即兑换</view>

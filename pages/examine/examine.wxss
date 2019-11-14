@@ -1,0 +1,23 @@
+.exa{
+    padding-top: 234rpx;
+    border-top: 1rpx solid #E1E9F0;
+    text-align: center;
+}
+.exa>image{
+    width: 168rpx;
+    height: 168rpx;
+    margin-bottom: 20rpx;
+}
+.h1{
+    color: #484A4D;
+    font-size: 36rpx;
+    font-weight: 700;
+    margin-bottom: 24rpx;
+}
+.h2{
+    font-size: 28rpx;
+    color: #909499;
+}
+.h2>text{
+    color: #1878F5
+}

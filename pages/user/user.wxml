@@ -23,7 +23,7 @@
             </navigator>
         </view>
     </view>
-    <view class="information" style="padding-left: 50rpx;padding-right: 70rpx;">
+    <view class="information" bindtap="wallet" style="padding-left: 50rpx;padding-right: 70rpx;">
         <!-- <view class="" hover-class="none" hover-stop-propagation="false">
             <view class="inf-top">5</view>
             <view class="inf-bot">优惠券</view>

@@ -1,0 +1,5 @@
+<view class="exa">
+    <image class="" src="../../icons/tjcg.png"></image>
+    <view class="h1">审核已提交</view>
+    <view class="h2">预计将在<text>1-3个工作日</text>完成交易</view>
+</view>

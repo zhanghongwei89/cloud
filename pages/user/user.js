@@ -145,6 +145,26 @@ Page({
     }
     
   },
+  // 跳转钱包
+  wallet:function(){
+    if(wx.getStorageSync('token') == ''){
+      wx.showToast({
+        title: '请登录',
+        icon: 'none',
+        duration: 2000
+      })
+      setTimeout(function(){
+        wx.navigateTo({
+          url: '../login/login',
+        })
+      },1000)
+    }else{
+      wx.navigateTo({
+      url: '../wallet/wallet',
+    })
+    }
+    
+  },
 
   // 退出登录
   logout:function(){

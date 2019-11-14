@@ -1,0 +1,29 @@
+<view class="cny" style="background:url(http://api.mypalmtech.cn/img/cny.png) no-repeat;background-size:100%">
+    <view class="cny-left">
+        <view>CNY(元)</view>
+        <view>{{commission}}</view>
+    </view>
+    <view class="cny-right" bindtap="wytx">我要提现</view>
+</view>
+
+<view class="btc" style="background:url(http://api.mypalmtech.cn/img/btc.png) no-repeat;background-size:100%">
+    <view class="btc-left">
+        <view>BTC(Bitcoins)</view>
+        <view>{{profit}}</view>
+    </view>
+    <view class="btc-right" bindtap="zrqb">转入钱包</view>
+</view>
+
+<view class="fb" bindtap="fb">
+    <view class="fb-l">
+        <image class="" src="../../icons/fb.png"></image>
+        <text class="">如何兑换法币</text>
+    </view>
+    <image class="fb-r" src="../../icons/r.png"></image>
+</view>
+
+<view class="cloud-h1">本商城信息与掌尖云自动关联，账户详情请登录</view>
+<view class="cloud-h2"> 
+    <text bindtap="copyText" data-text="mypalmcloud.com/app">mypalmcloud.com/app</text> 
+    查看收益详情
+</view>

@@ -1,6 +1,11 @@
 {
   "pages": [
     "pages/index/index",
+    "pages/wallet/wallet",
+    "pages/transfer/transfer",
+    "pages/cash/cash",
+    "pages/fb/fb",
+    "pages/examine/examine",
     "pages/newsCoreNt/newsCoreNt",
     "pages/user/user",
     "pages/news/news",

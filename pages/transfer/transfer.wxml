@@ -1,0 +1,15 @@
+<view class="h1">钱包账户</view>
+<view class="address-box">
+    <input class="" value="{{address}}" name="address" type="text" placeholder="请输入钱包地址" maxlength="140" bindinput="address"></input>
+</view>
+<view class="h1">转入数量</view>
+<view class="btb-box">
+    <image class="" src="../../icons/btb.png"></image>
+    <input class="" value="{{btb}}" name="btb" type="number" placeholder="请输入数量" maxlength="140" bindinput="btb"></input>
+    <text bindtap="max">最大</text>
+</view>
+<view class="balance">
+    <view class="bal-left">余额：{{btc}}BTC</view>
+    <view class="bal-right">手续费：3%</view>
+</view>
+<view class="btn" bindtap="btn">提交审核</view>

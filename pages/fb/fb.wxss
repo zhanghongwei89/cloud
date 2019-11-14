@@ -1,0 +1,40 @@
+page{
+    padding: 24rpx 30rpx;
+}
+.h1{
+    color: #303133;
+    font-size: 30rpx;
+    font-weight: 700;
+    margin-bottom: 16rpx;
+}
+.h2{
+    color: #606366;
+    font-size: 28rpx;
+    margin-bottom: 24rpx;
+}
+.img-one{
+    width: 100%;
+    height: 256rpx;
+    margin-bottom: 32rpx;
+}
+.img-two{
+    width: 100%;
+    height: 548rpx;
+    margin-bottom: 32rpx;
+}
+.zw{
+    width: 100%;
+    height: 30rpx;
+}
+.ljdh{
+    position: fixed;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 98rpx;
+    line-height: 98rpx;
+    text-align: center;
+    color: #fff;
+    font-size: 32rpx;
+    background: #1878F5
+}
